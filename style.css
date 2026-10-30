@@ -1137,6 +1137,187 @@ img {
     color: #ffffff;
 }
 
+/* ===================================================
+   14. Responsive Layouts & Media Queries
+   Web Development CA Project - Mobile & Tablet Views
+   =================================================== */
+
+/* Tablet View (Max Width: 1024px) */
+@media screen and (max-width: 1024px) {
+    .hero-wrapper {
+        gap: 36px;
+    }
+
+    .hero-heading {
+        font-size: 2.6rem;
+    }
+
+    .heritage-layout {
+        gap: 40px;
+    }
+
+    /* Menu: Switch from 4 to 2 columns */
+    .dishes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+    }
+
+    .hearth-promo-box {
+        flex-direction: column;
+    }
+
+    .promo-image-side {
+        width: 100%;
+        height: 280px;
+    }
+
+    .promo-text-side {
+        padding: 36px;
+    }
+
+    .booking-split-layout {
+        gap: 36px;
+    }
+}
+
+/* Mobile Devices (Max Width: 768px) */
+@media screen and (max-width: 768px) {
+    /* Header */
+    .nav-container {
+        flex-direction: column;
+        gap: 14px;
+        padding: 12px 18px;
+    }
+
+    .main-menu .menu-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 18px;
+    }
+
+    .nav-action {
+        display: none;
+    }
+
+    /* Section Spacing */
+    .container {
+        padding: 50px 18px;
+    }
+
+    .section-title {
+        font-size: 1.85rem;
+    }
+
+    /* Hero Section */
+    .hero-block {
+        padding: 40px 18px 60px 18px;
+    }
+
+    .hero-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-subtext {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-cta-group {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .hero-highlights {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .hero-visual {
+        width: 100%;
+    }
+
+    .hero-photo {
+        height: 320px;
+    }
+
+    .hero-artisan-badge {
+        bottom: -15px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%) !important;
+        animation: none;
+        width: 90%;
+        justify-content: center;
+    }
+
+    /* Heritage Section */
+    .heritage-layout {
+        flex-direction: column;
+        gap: 36px;
+    }
+
+    .heritage-image-wrapper {
+        width: 100%;
+    }
+
+    .heritage-photo {
+        height: 320px;
+    }
+
+    .tradition-tag {
+        left: 10px;
+        top: 10px;
+        padding: 10px 14px;
+    }
+
+    /* Dishes Grid: 1 Column on Mobile */
+    .dishes-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Perks: Stack into 1 column */
+    .perks-row {
+        flex-direction: column;
+    }
+
+    /* Reviews: Stack into 1 column */
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Booking Layout */
+    .booking-split-layout {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .reservation-form-container {
+        padding: 26px 18px;
+    }
+
+    .input-grid {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    /* Footer */
+    .footer-wrap {
+        flex-direction: column;
+        gap: 32px;
+        padding-bottom: 30px;
+    }
+
+    .footer-bar-container {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+}
+
+
 
 
 
