@@ -160,6 +160,7 @@
                             <p class="dish-desc">
                                 Freshly baked sourdough bread sliced thick and toasted with garlic butter, parsley, and sea salt. Crisp on the outside and soft inside.
                             </p>
+                            <button type="button" class="btn-card-order" onclick="selectDish('Classic Garlic Sourdough')">+ Add to Reservation</button>
                         </div>
                     </article>
 
@@ -179,6 +180,7 @@
                             <p class="dish-desc">
                                 Toasted slices of rustic Italian bread rubbed with garlic and topped with diced fresh ripe tomatoes, sweet basil, and extra virgin olive oil.
                             </p>
+                            <button type="button" class="btn-card-order" onclick="selectDish('Tomato Basil Bruschetta')">+ Add to Reservation</button>
                         </div>
                     </article>
 
@@ -198,6 +200,7 @@
                             <p class="dish-desc">
                                 Classic thin-crust pizza baked with rich tomato sauce, melted mozzarella cheese, fresh basil leaves, and a drizzle of pure olive oil.
                             </p>
+                            <button type="button" class="btn-card-order" onclick="selectDish('Wood-Fired Margherita')">+ Add to Reservation</button>
                         </div>
                     </article>
 
@@ -217,6 +220,7 @@
                             <p class="dish-desc">
                                 Layers of tender pasta sheets baked in the oven with sautéed spinach, creamy white cheese sauce, tomato sauce, and golden mozzarella.
                             </p>
+                            <button type="button" class="btn-card-order" onclick="selectDish('Baked Spinach Lasagna')">+ Add to Reservation</button>
                         </div>
                     </article>
 
@@ -236,6 +240,7 @@
                             <p class="dish-desc">
                                 Homemade flaky butter crust filled with spiced apples, cinnamon, and brown sugar caramel. Served warm with vanilla ice cream.
                             </p>
+                            <button type="button" class="btn-card-order" onclick="selectDish('Warm Apple Pie')">+ Add to Reservation</button>
                         </div>
                     </article>
 
@@ -255,6 +260,7 @@
                             <p class="dish-desc">
                                 Flaky golden French pastry filled with sweet almond cream filling and topped with roasted sliced almonds and powdered sugar.
                             </p>
+                            <button type="button" class="btn-card-order" onclick="selectDish('Almond Butter Croissant')">+ Add to Reservation</button>
                         </div>
                     </article>
 
@@ -274,6 +280,7 @@
                             <p class="dish-desc">
                                 Freshly brewed espresso coffee blended with steamed whole milk and topped with a thick layer of creamy milk foam and cocoa powder.
                             </p>
+                            <button type="button" class="btn-card-order" onclick="selectDish('Italian Cappuccino')">+ Add to Reservation</button>
                         </div>
                     </article>
 
@@ -293,6 +300,7 @@
                             <p class="dish-desc">
                                 Chilled black tea infused with natural blueberry and raspberry extracts, fresh mint, lemon juice, and a light touch of pure honey.
                             </p>
+                            <button type="button" class="btn-card-order" onclick="selectDish('Wild Berry Iced Tea')">+ Add to Reservation</button>
                         </div>
                     </article>
                 </div>
@@ -309,11 +317,11 @@
                         <p class="offer-desc">
                             Order any two wood-fired pizzas of your choice and get a free basket of fresh garlic sourdough bread plus one complimentary almond croissant!
                         </p>
-                        <div class="promo-coupon">
+                        <div class="promo-coupon" onclick="applyPromo('RUSTICBAKE')" style="cursor: pointer;" title="Click to apply promo code">
                             <span>Use Promo Code:</span>
                             <strong>RUSTICBAKE</strong>
                         </div>
-                        <a href="#book" class="btn btn-primary">Claim This Offer</a>
+                        <a href="#book" class="btn btn-primary" onclick="applyPromo('RUSTICBAKE')">Claim This Offer (Apply Code)</a>
                     </div>
                     <div class="offer-image-box">
                         <img src="images/special-basket.jpg" alt="Baker's Feast Combo" class="offer-img">
@@ -505,65 +513,100 @@
                     </div>
 
                     <!-- Pure HTML5 Form without JS (Lecture 3) -->
-                    <div class="booking-form-wrap">
-                        <div class="form-header">
-                            <h3>Reserve Your Table</h3>
-                            <p>Fill out the form below. We will confirm your slot via SMS or Email.</p>
+                    <div class="booking-form-wrap" id="bookingCard">
+                        <div id="booking-form-wrap-inner">
+                            <div class="form-header">
+                                <h3>Reserve Your Table</h3>
+                                <p>Fill out the form below. We will confirm your slot via SMS or Email.</p>
+                            </div>
+
+                            <form class="booking-form" id="reservationForm" onsubmit="handleReservation(event)">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="fullName">Full Name <span class="req">*</span></label>
+                                        <input type="text" id="fullName" name="fullName" placeholder="e.g. Rahul Sharma" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phoneNumber">Phone Number <span class="req">*</span></label>
+                                        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="e.g. 9876543210" pattern="[0-9]{10}" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="emailAddr">Email Address <span class="req">*</span></label>
+                                        <input type="email" id="emailAddr" name="emailAddr" placeholder="e.g. rahul@example.com" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="partySize">Number of Guests <span class="req">*</span></label>
+                                        <select id="partySize" name="partySize" required>
+                                            <option value="" disabled selected>Select number of people</option>
+                                            <option value="1">1 Person (Solo Dining)</option>
+                                            <option value="2">2 Persons (Couple Table)</option>
+                                            <option value="3-4">3 to 4 Persons (Family Table)</option>
+                                            <option value="5+">5+ Persons (Large Group)</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="bookDate">Date of Visit <span class="req">*</span></label>
+                                        <input type="date" id="bookDate" name="bookDate" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bookSlot">Time Slot <span class="req">*</span></label>
+                                        <select id="bookSlot" name="bookSlot" required>
+                                            <option value="" disabled selected>Select time slot</option>
+                                            <option value="breakfast">Morning Breakfast (8:30 AM – 11:30 AM)</option>
+                                            <option value="lunch">Lunch (12:00 PM – 3:30 PM)</option>
+                                            <option value="tea">Evening Coffee & Bakes (4:00 PM – 7:00 PM)</option>
+                                            <option value="dinner">Wood-Fired Dinner (7:30 PM – 10:30 PM)</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="specialNotes">Special Requests (Optional)</label>
+                                    <textarea id="specialNotes" name="specialNotes" rows="3" placeholder="e.g. Birthday celebration, outdoor garden seating preference..."></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-block">Confirm Table Reservation</button>
+                            </form>
                         </div>
 
-                        <form class="booking-form" action="#" method="post">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="fullName">Full Name <span class="req">*</span></label>
-                                    <input type="text" id="fullName" name="fullName" placeholder="e.g. Rahul Sharma" required>
+                        <!-- Confirmation message box displayed on submit (Prevents 405 error on static hosting) -->
+                        <div id="booking-confirmation" class="booking-confirmation" style="display: none;">
+                            <div class="conf-icon">🎉</div>
+                            <h3>Table Reserved Successfully!</h3>
+                            <p class="conf-intro">Thank you, <strong id="conf-name">Guest</strong>! Your reservation has been recorded.</p>
+
+                            <div class="conf-details-box">
+                                <div class="conf-row">
+                                    <span>Party Size:</span>
+                                    <strong id="conf-guests">2 Persons</strong>
                                 </div>
-                                <div class="form-group">
-                                    <label for="phoneNumber">Phone Number <span class="req">*</span></label>
-                                    <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="e.g. 9876543210" pattern="[0-9]{10}" required>
+                                <div class="conf-row">
+                                    <span>Date of Visit:</span>
+                                    <strong id="conf-date">Selected Date</strong>
+                                </div>
+                                <div class="conf-row">
+                                    <span>Dining Slot:</span>
+                                    <strong id="conf-time">Lunch</strong>
+                                </div>
+                                <div class="conf-row">
+                                    <span>Contact Phone:</span>
+                                    <strong id="conf-phone">9876543210</strong>
+                                </div>
+                                <div class="conf-row" id="conf-notes-row" style="display: none;">
+                                    <span>Notes & Requests:</span>
+                                    <strong id="conf-notes"></strong>
                                 </div>
                             </div>
 
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="emailAddr">Email Address <span class="req">*</span></label>
-                                    <input type="email" id="emailAddr" name="emailAddr" placeholder="e.g. rahul@example.com" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="partySize">Number of Guests <span class="req">*</span></label>
-                                    <select id="partySize" name="partySize" required>
-                                        <option value="" disabled selected>Select number of people</option>
-                                        <option value="1">1 Person (Solo Dining)</option>
-                                        <option value="2">2 Persons (Couple Table)</option>
-                                        <option value="3-4">3 to 4 Persons (Family Table)</option>
-                                        <option value="5+">5+ Persons (Large Group)</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="bookDate">Date of Visit <span class="req">*</span></label>
-                                    <input type="date" id="bookDate" name="bookDate" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="bookSlot">Time Slot <span class="req">*</span></label>
-                                    <select id="bookSlot" name="bookSlot" required>
-                                        <option value="" disabled selected>Select time slot</option>
-                                        <option value="breakfast">Morning Breakfast (8:30 AM – 11:30 AM)</option>
-                                        <option value="lunch">Lunch (12:00 PM – 3:30 PM)</option>
-                                        <option value="tea">Evening Coffee & Bakes (4:00 PM – 7:00 PM)</option>
-                                        <option value="dinner">Wood-Fired Dinner (7:30 PM – 10:30 PM)</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="specialNotes">Special Requests (Optional)</label>
-                                <textarea id="specialNotes" name="specialNotes" rows="3" placeholder="e.g. Birthday celebration, outdoor garden seating preference..."></textarea>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary btn-block">Confirm Table Reservation</button>
-                        </form>
+                            <p class="conf-footer-text">A confirmation SMS will be sent shortly. We look forward to hosting you at Rustic Kitchen!</p>
+                            <button type="button" class="btn btn-primary btn-block" onclick="resetBookingForm()">Make Another Reservation</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -613,5 +656,95 @@
         </div>
     </footer>
 
+    <!-- Client-side Interactive Script for Functional Buttons and Form Submission -->
+    <script>
+        // Handle Table Reservation Form Submission (Prevents 405 error on static hosting)
+        function handleReservation(event) {
+            event.preventDefault();
+
+            var name = document.getElementById('fullName').value.trim();
+            var phone = document.getElementById('phoneNumber').value.trim();
+            var email = document.getElementById('emailAddr').value.trim();
+            var guests = document.getElementById('partySize').value;
+            var date = document.getElementById('bookDate').value;
+            var slot = document.getElementById('bookSlot').value;
+            var notes = document.getElementById('specialNotes').value.trim();
+
+            if (!name || !phone || !email || !guests || !date || !slot) {
+                alert('Please fill out all required fields before submitting.');
+                return;
+            }
+
+            document.getElementById('conf-name').textContent = name;
+            document.getElementById('conf-phone').textContent = phone;
+            document.getElementById('conf-guests').textContent = guests + (guests === '1' ? ' Person' : ' Persons');
+            document.getElementById('conf-date').textContent = date;
+
+            var slotNames = {
+                'breakfast': 'Morning Breakfast (8:30 AM – 11:30 AM)',
+                'lunch': 'Lunch (12:00 PM – 3:30 PM)',
+                'tea': 'Evening Coffee & Bakes (4:00 PM – 7:00 PM)',
+                'dinner': 'Wood-Fired Dinner (7:30 PM – 10:30 PM)'
+            };
+            document.getElementById('conf-time').textContent = slotNames[slot] || slot;
+
+            if (notes) {
+                document.getElementById('conf-notes').textContent = notes;
+                document.getElementById('conf-notes-row').style.display = 'flex';
+            } else {
+                document.getElementById('conf-notes-row').style.display = 'none';
+            }
+
+            document.getElementById('booking-form-wrap-inner').style.display = 'none';
+            var confBox = document.getElementById('booking-confirmation');
+            confBox.style.display = 'block';
+
+            confBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Reset reservation form to book another table
+        function resetBookingForm() {
+            document.getElementById('reservationForm').reset();
+            document.getElementById('booking-confirmation').style.display = 'none';
+            document.getElementById('booking-form-wrap-inner').style.display = 'block';
+        }
+
+        // Apply promo code from specials banner
+        function applyPromo(code) {
+            var specialNotes = document.getElementById('specialNotes');
+            if (specialNotes) {
+                specialNotes.value = 'Applied Promo Code: ' + code + ' (Baker Feast Offer)';
+            }
+            var bookSection = document.getElementById('book');
+            if (bookSection) {
+                bookSection.scrollIntoView({ behavior: 'smooth' });
+            }
+            var nameInput = document.getElementById('fullName');
+            if (nameInput) {
+                setTimeout(function() { nameInput.focus(); }, 400);
+            }
+        }
+
+        // Add dish name from menu card to reservation notes
+        function selectDish(dishName) {
+            var specialNotes = document.getElementById('specialNotes');
+            if (specialNotes) {
+                var current = specialNotes.value.trim();
+                if (current.length > 0 && current.indexOf(dishName) === -1) {
+                    specialNotes.value = current + ' | Pre-order: ' + dishName;
+                } else if (current.length === 0) {
+                    specialNotes.value = 'Pre-order item: ' + dishName;
+                }
+            }
+            var bookSection = document.getElementById('book');
+            if (bookSection) {
+                bookSection.scrollIntoView({ behavior: 'smooth' });
+            }
+            var nameInput = document.getElementById('fullName');
+            if (nameInput) {
+                setTimeout(function() { nameInput.focus(); }, 400);
+            }
+        }
+    </script>
 </body>
 </html>
