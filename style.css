@@ -1,0 +1,180 @@
+/* ===================================================
+   Rustic Kitchen - Homestyle Bakery & Trattoria
+   Web Development CA Project 1
+   Tech Stack: Semantic HTML5 & CSS3
+   =================================================== */
+
+/* 1. CSS Custom Properties / Color Tokens */
+:root {
+    --primary: #b85d38;             /* Warm terracotta */
+    --primary-dark: #8c3f21;        /* Deep brick red */
+    --primary-light: #faeee7;       /* Soft linen peach */
+    --accent-gold: #c9933b;         /* Harvest wheat gold */
+    --accent-green: #3d6647;        /* Forest rosemary green */
+    --bg-main: #fbf9f5;             /* Warm alabaster canvas */
+    --bg-white: #ffffff;            /* Crisp card surface */
+    --text-heading: #2d241e;        /* Dark espresso */
+    --text-body: #665c54;           /* Warm charcoal grey */
+    --line-border: #ece3d8;         /* Subtle biscuit divider */
+    --shadow-card: 0 4px 14px rgba(45, 36, 30, 0.06);
+    --shadow-elevated: 0 10px 24px rgba(45, 36, 30, 0.12);
+    --anim-speed: 0.3s ease;
+}
+
+/* 2. Global Resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-body);
+    background-color: var(--bg-main);
+    line-height: 1.65;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--text-heading);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--anim-speed);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 3. Reusable Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    transition: var(--anim-speed);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(184, 93, 56, 0.28);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.btn-nav {
+    background-color: var(--primary);
+    color: #ffffff;
+    padding: 8px 18px;
+    font-size: 0.85rem;
+}
+
+.btn-nav:hover {
+    background-color: var(--primary-dark);
+}
+
+/* 4. Top Header & Nav */
+.top-header {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--line-border);
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.brand-text h1 {
+    font-size: 1.65rem;
+    color: var(--primary);
+    letter-spacing: -0.5px;
+}
+
+.brand-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-body);
+    display: block;
+}
+
+.main-menu .menu-list {
+    list-style: none;
+    display: flex;
+    gap: 26px;
+}
+
+.menu-link {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--text-heading);
+    padding: 6px 0;
+    position: relative;
+}
+
+.menu-link:hover,
+.menu-link.active {
+    color: var(--primary);
+}
+
+.menu-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary);
+}
