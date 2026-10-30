@@ -564,4 +564,288 @@ img {
     margin-top: auto;
 }
 
+/* 9. Specials & Offers */
+.specials-wrapper {
+    background-color: #ffffff;
+}
+
+.hearth-promo-box {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #f7eee7 0%, #fae9dc 100%);
+    border-radius: 18px;
+    border: 1px solid #ead0c1;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    margin-bottom: 36px;
+}
+
+.promo-text-side {
+    flex: 1.1;
+    padding: 48px;
+}
+
+.promo-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background-color: var(--primary);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.promo-title {
+    font-size: 2.3rem;
+    line-height: 1.2;
+    margin-bottom: 14px;
+}
+
+.promo-description {
+    font-size: 1rem;
+    color: var(--text-body);
+    margin-bottom: 24px;
+    max-width: 500px;
+}
+
+.coupon-display {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    background-color: #ffffff;
+    border: 2px dashed var(--primary);
+    border-radius: 8px;
+    margin-bottom: 28px;
+}
+
+.coupon-display span {
+    font-size: 0.85rem;
+    color: var(--text-body);
+}
+
+.coupon-display strong {
+    font-size: 1.1rem;
+    color: var(--primary);
+    letter-spacing: 1.5px;
+    font-family: monospace;
+}
+
+.promo-image-side {
+    flex: 0.9;
+    height: 380px;
+}
+
+.promo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.perks-row {
+    display: flex;
+    gap: 24px;
+}
+
+.perk-card {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 24px;
+    background-color: var(--bg-main);
+    border: 1px solid var(--line-border);
+    border-radius: 12px;
+    transition: var(--anim-speed);
+}
+
+.perk-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card);
+}
+
+.perk-icon {
+    font-size: 2.2rem;
+    line-height: 1;
+}
+
+.perk-details h4 {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+}
+
+.perk-details p {
+    font-size: 0.9rem;
+    color: var(--text-body);
+    margin-bottom: 10px;
+}
+
+.perk-note {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--primary);
+}
+
+/* 10. Customer Reviews / Testimonials */
+.reviews-section {
+    background-color: var(--bg-main);
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.review-box {
+    background-color: var(--bg-white);
+    padding: 32px 26px;
+    border-radius: 14px;
+    border: 1px solid var(--line-border);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--anim-speed);
+}
+
+.review-box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-elevated);
+}
+
+.stars {
+    color: #e5a93b;
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+    letter-spacing: 2px;
+}
+
+.review-quote {
+    font-size: 0.96rem;
+    font-style: italic;
+    color: var(--text-heading);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.reviewer {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-top: 1px solid var(--line-border);
+    padding-top: 16px;
+}
+
+.avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--primary-light);
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ecd5c7;
+}
+
+.reviewer h5 {
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+}
+
+.reviewer span {
+    font-size: 0.8rem;
+    color: var(--text-body);
+}
+
+/* 11. Operating Hours Table (HTML Table - Lecture 4) */
+.timings-section {
+    background-color: #ffffff;
+}
+
+.table-container {
+    overflow-x: auto;
+    background-color: #ffffff;
+    border-radius: 14px;
+    border: 1px solid var(--line-border);
+    box-shadow: var(--shadow-card);
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.schedule-table thead tr {
+    background-color: var(--primary-light);
+}
+
+.schedule-table th {
+    padding: 16px 20px;
+    text-align: left;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--primary-dark);
+    border-bottom: 2px solid #e5cdbe;
+}
+
+.schedule-table td {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--line-border);
+    color: var(--text-heading);
+}
+
+.schedule-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.schedule-table tbody tr:hover {
+    background-color: #faf6f0;
+}
+
+.closed-cell {
+    color: #9e4726;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.badge-status {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.status-normal {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+
+.status-weekend {
+    background-color: #fff3e0;
+    color: #e65100;
+    border: 1px solid #ffe0b2;
+}
+
+.status-closed {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+}
+
+
 
