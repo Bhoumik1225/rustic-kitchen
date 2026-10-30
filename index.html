@@ -452,10 +452,169 @@
                 </div>
             </div>
         </section>
+
+        <!-- 7. Table Reservation & Contact Section (Lecture 3 HTML Forms) -->
+        <section id="book" class="booking-section">
+            <div class="container">
+                <div class="booking-split-layout">
+                    
+                    <!-- Left: Kitchen Info & Location -->
+                    <div class="kitchen-info-box">
+                        <span class="section-label">Visit Our Hearth</span>
+                        <h2 class="section-title">Come Dine with Us.</h2>
+                        <p class="kitchen-lead">
+                            We take table bookings for family lunches, celebratory dinners, and quiet bakery coffee afternoons. Walk-ins are always welcomed subject to table availability.
+                        </p>
+
+                        <div class="address-cards">
+                            <div class="address-card">
+                                <span class="card-icon">📍</span>
+                                <div>
+                                    <h4>Bakery & Trattoria Address</h4>
+                                    <p>Shop 14-16, East Avenue, Kalyani Nagar, Pune, Maharashtra 411006</p>
+                                </div>
+                            </div>
+
+                            <div class="address-card">
+                                <span class="card-icon">📞</span>
+                                <div>
+                                    <h4>Phone Inquiries</h4>
+                                    <p><a href="tel:+919822012345">+91 98220 12345</a></p>
+                                </div>
+                            </div>
+
+                            <div class="address-card">
+                                <span class="card-icon">✉️</span>
+                                <div>
+                                    <h4>Direct Email</h4>
+                                    <p><a href="mailto:hearth@rustickitchen.in">hearth@rustickitchen.in</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hearth-features-box">
+                            <h4>Guest Conveniences</h4>
+                            <ul class="features-checklist">
+                                <li>✓ Traditional Beechwood Pizza Oven</li>
+                                <li>✓ Outdoor Cobblestone Veranda Seating</li>
+                                <li>✓ 100% Vegetarian Artisan Prep Kitchen</li>
+                                <li>✓ Dedicated Takeaway Bakery Counter</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Right: Reservation Form -->
+                    <div class="reservation-form-container">
+                        <div class="form-title-group">
+                            <h3>Reserve Your Hearth Table</h3>
+                            <p>Fill out the reservation form below. We will send an instant confirmation via SMS and Email.</p>
+                        </div>
+
+                        <form class="hearth-form" action="#" method="post" onsubmit="event.preventDefault(); alert('Thank you! Your table at Rustic Kitchen has been booked.');">
+                            <div class="input-grid">
+                                <div class="field-item">
+                                    <label for="clientName">Your Name <span class="req">*</span></label>
+                                    <input type="text" id="clientName" name="clientName" placeholder="e.g. Rahul Sharma" required>
+                                </div>
+                                <div class="field-item">
+                                    <label for="clientPhone">Contact Number <span class="req">*</span></label>
+                                    <input type="tel" id="clientPhone" name="clientPhone" placeholder="e.g. 9822012345" required>
+                                </div>
+                            </div>
+
+                            <div class="input-grid">
+                                <div class="field-item">
+                                    <label for="clientEmail">Email Address <span class="req">*</span></label>
+                                    <input type="email" id="clientEmail" name="clientEmail" placeholder="e.g. rahul@example.com" required>
+                                </div>
+                                <div class="field-item">
+                                    <label for="partySize">Number of Guests <span class="req">*</span></label>
+                                    <select id="partySize" name="partySize" required>
+                                        <option value="" disabled selected>Select Party Size</option>
+                                        <option value="1">1 Person (Solo Dining)</option>
+                                        <option value="2">2 Persons (Couple Table)</option>
+                                        <option value="3-4">3 to 4 Persons (Family Booth)</option>
+                                        <option value="5+">5+ Persons (Large Feast Table)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="input-grid">
+                                <div class="field-item">
+                                    <label for="visitDate">Date of Visit <span class="req">*</span></label>
+                                    <input type="date" id="visitDate" name="visitDate" required>
+                                </div>
+                                <div class="field-item">
+                                    <label for="visitSlot">Dining Slot <span class="req">*</span></label>
+                                    <select id="visitSlot" name="visitSlot" required>
+                                        <option value="" disabled selected>Select Slot</option>
+                                        <option value="morning">Morning Breakfast (8:30 AM – 11:30 AM)</option>
+                                        <option value="lunch">Artisan Lunch (12:00 PM – 3:30 PM)</option>
+                                        <option value="evening">Afternoon Tea & Bakes (4:00 PM – 7:00 PM)</option>
+                                        <option value="dinner">Wood-Fired Dinner (7:30 PM – 11:00 PM)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="field-item">
+                                <label for="guestNotes">Special Dietary / Seating Requests</label>
+                                <textarea id="guestNotes" name="guestNotes" rows="3" placeholder="e.g. Outdoor veranda seating preferred, anniversary celebration, extra bread basket..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-fullwidth">Confirm Table Booking</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
     </main>
 
+    <!-- Footer Section -->
     <footer class="footer-section">
-        <p>&copy; 2026 Rustic Kitchen. All rights reserved.</p>
+        <div class="footer-wrap">
+            <div class="footer-main-col">
+                <div class="footer-brand">
+                    <h2>🌾 Rustic Kitchen</h2>
+                    <span>Homestyle Bakery & Trattoria</span>
+                </div>
+                <p class="footer-desc">
+                    Celebrating slow fermentation, stone-ground flours, and wood-fired homestyle recipes. Baked fresh every morning with care in Pune.
+                </p>
+            </div>
+
+            <div class="footer-nav-col">
+                <h4>Navigation</h4>
+                <ul class="footer-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Our Heritage</a></li>
+                    <li><a href="#menu">Bakery Menu</a></li>
+                    <li><a href="#specials">Weekly Offers</a></li>
+                    <li><a href="#timings">Operating Hours</a></li>
+                    <li><a href="#book">Book a Table</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-schedule-col">
+                <h4>Kitchen Timings</h4>
+                <p><strong>Tue – Fri:</strong> 8:30 AM – 10:00 PM</p>
+                <p><strong>Sat – Sun:</strong> 8:00 AM – 11:00 PM</p>
+                <p><strong>Monday:</strong> Closed for Prep</p>
+                <div class="social-pill">
+                    <span>Instagram: @rustickitchenpune</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bar">
+            <div class="footer-bar-container">
+                <p>&copy; 2026 Rustic Kitchen. All rights reserved.</p>
+                <p class="developer-tag">
+                    Web Development Continuous Assessment (CA) Project · Built with Semantic HTML5 & CSS3
+                </p>
+                <a href="#home" class="scroll-top">Top ↑</a>
+            </div>
+        </div>
     </footer>
 
 </body>
