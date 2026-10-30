@@ -14,6 +14,14 @@ The project strictly follows the syllabus guidelines from Lectures 1 to 7 taught
 
 ---
 
+## 📸 Screenshots (Desktop & Mobile)
+
+| Desktop View (1280px) | Mobile Responsive View (390px) |
+|:---:|:---:|
+| ![Desktop View](screenshots/desktop-preview.png) | ![Mobile View](screenshots/mobile-preview.png) |
+
+---
+
 ## 🌟 Rubric Features Checklist
 
 | # | Feature Requirement | Lecture Reference | Implementation Details |
