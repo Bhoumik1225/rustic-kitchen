@@ -1,4 +1,4 @@
-# 🌾 Rustic Kitchen — Homestyle Bakery & Trattoria
+# 🌾 Rustic Kitchen — Homestyle Bakery & Kitchen
 
 > **Web Development Continuous Assessment (CA) Project 1**  
 > **Course:** Web Development Foundations (HTML, CSS, JS) Lab (Course ID: 29282)  
@@ -7,40 +7,41 @@
 
 ---
 
-## 📖 Project Description
-**Rustic Kitchen** is a responsive, artisanal restaurant and bakery website designed and developed using pure semantic **HTML5** and **CSS3**. The project represents a warm, Italian-inspired trattoria and neighbourhood bakery dedicated to wood-fired hearth baking, 36-hour slow-fermented sourdough, and comforting homestyle meals.
+## 📖 Project Overview
+**Rustic Kitchen** is a responsive, artisanal bakery and Italian kitchen website designed and developed using pure semantic **HTML5** and **CSS3**. The project features a warm neighborhood bakery dedicated to slow-fermented sourdough breads, wood-fired hearth pizzas, oven-baked pasta, and freshly prepared desserts.
 
-The project strictly follows the syllabus guidelines from Lectures 1 to 7, applying standard CSS Box Model properties, Flexbox alignment, CSS Grid layouts, CSS Position properties, and CSS Media Queries.
+The project strictly follows the syllabus guidelines from Lectures 1 to 7 taught in class, using standard CSS Box Model properties, Flexbox alignment, CSS Grid layouts, CSS Position properties, and CSS Media Queries.
 
 ---
 
 ## 🌟 Rubric Features Checklist
 
-| # | Feature Requirement | Implementation Details |
-|:---:|:---|:---|
-| **1** | **Header & Navigation** | Semantic `<header>` and `<nav>` with brand icon (`🌾`), logo typography, smooth section links, and "Book a Table" button. |
-| **2** | **Hero Showcase** | High-impact headline, artisanal backstory, dual call-to-action buttons, key statistics (36 Hrs, 450°C), and animated oven-fresh badge with `@keyframes gentlePulse`. |
-| **3** | **Heritage / About Story** | Narrative explaining stone-milled flours, beechwood stone ovens, and 3 key kitchen pillars. |
-| **4** | **8 Menu Cards** | 4-column CSS Grid displaying 8 dishes across Hearth Bakes, Wood-Fired Mains, Pastries, and Beverages with prices, descriptions, and dietary tags (`🌱 Pure Veg`). |
-| **5** | **Promotional Specials** | "The Baker's Feast Bundle" banner with coupon code `RUSTICBAKE` and secondary student privilege cards. |
-| **6** | **Patron Reviews** | 3-column guest testimonials with star ratings (★★★★★) and reviewer profile initials. |
-| **7** | **Operating Schedule Table** | HTML `<table>` (from Lecture 4) with `<thead>`, `<tbody>`, `<th>`, `<td>`, and `colspan="2"` showing daily dining slots and Monday preparation rest notice. |
-| **8** | **Table Reservation Form** | HTML `<form>` (from Lecture 3) with fields for Full Name, Phone, Email, Guest count dropdown (`<select>`), Date picker, Time slot, and special requests (`<textarea>`). |
-| **9** | **Full Mobile Responsiveness** | Multi-breakpoint CSS `@media` queries covering Mobile (<768px), Tablet (768px–1024px), and Desktop (>1024px). |
-| **10** | **Comprehensive Footer** | Semantic `<footer>` with kitchen description, quick navigation links, weekly timings, and project credit. |
+| # | Feature Requirement | Lecture Reference | Implementation Details |
+|:---:|:---|:---|:---|
+| **1** | **Semantic Layout & Structure** | Lecture 1 & 4 | Proper HTML5 Doctype, `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, and `<footer>` elements. |
+| **2** | **Header & Navigation Bar** | Lecture 2 & 6 | Sticky header with brand logo, smooth internal navigation links, and a primary CTA button using CSS Flexbox. |
+| **3** | **Hero Banner** | Lecture 5 & 7 | Hero introduction with key kitchen stats, CTA buttons, and an oven-fresh badge positioned with `position: absolute`. |
+| **4** | **About Story Section** | Lecture 4 & 6 | Two-column layout highlighting traditional wood oven baking, wholesome flours, and fresh ingredients. |
+| **5** | **8 Menu Cards Grid** | Lecture 6 & 7 | 4-column responsive CSS Grid featuring 8 dishes with prices, descriptions, and dietary veg badges (`🌱 Veg`). |
+| **6** | **Promotional Specials & Offers** | Lecture 5 & 6 | "The Baker's Feast Combo" discount coupon banner and college student ID perk cards. |
+| **7** | **Guest Testimonials** | Lecture 6 | 3-column customer feedback cards with 5-star ratings and reviewer info. |
+| **8** | **Operating Hours Table** | Lecture 4 | HTML `<table>` with `<thead>`, `<tbody>`, `<th>`, `<td>`, and `colspan="2"` demonstrating Monday kitchen prep closure. |
+| **9** | **Table Reservation Form** | Lecture 3 | Pure HTML5 `<form>` with text, tel, email, guest count `<select>`, date picker, time slot, and `<textarea>`. |
+| **10** | **Mobile & Tablet Responsive** | Lecture 5 & 6 | Fully responsive layout adapting cleanly across Desktop (>1024px), Tablet (768px–1024px), and Mobile (<768px) using CSS `@media` queries. |
 
 ---
 
-## 🛠️ Tech Stack & Concepts
+## 🛠️ Tech Stack & Key Concepts
 
 - **HTML5:**
   - Semantic elements: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>`, `<form>`, `<label>`, `<input>`, `<select>`, `<textarea>`, `<footer>`.
 - **CSS3:**
-  - **Color Palette Variables:** Terracotta (`#b85d38`), dark brick (`#8c3f21`), soft linen (`#faeee7`), and harvest gold (`#c9933b`).
-  - **Layout:** CSS Flexbox for header and hero; CSS Grid for dish cards and reviews.
-  - **Positioning:** `position: sticky` top bar, `position: absolute` on badges over `position: relative` media wrappers.
-  - **Animations:** Custom CSS `@keyframes gentlePulse`.
-  - **Media Queries:** Full mobile and tablet fluid breakpoints.
+  - **Color Palette Variables:** Terracotta (`#b85d38`), dark brick (`#9c4b2b`), soft linen peach (`#faeee7`), and harvest gold (`#c9933b`).
+  - **CSS Box Model:** Padding, margins, borders, and `box-sizing: border-box`.
+  - **CSS Flexbox:** Header navigation bar, hero layout, special offer banner, and footer columns.
+  - **CSS Grid:** 4-column dish menu grid and 3-column customer reviews.
+  - **CSS Positioning:** Sticky navigation bar (`position: sticky`), floating image tags and badge overlays (`position: absolute` inside `position: relative`).
+  - **Responsive Design:** Media queries at 1024px and 768px for tablet and mobile screens.
 
 ---
 
@@ -48,11 +49,11 @@ The project strictly follows the syllabus guidelines from Lectures 1 to 7, apply
 ```text
 rustic-kitchen/
 │
-├── index.html          # Semantic HTML5 page
-├── style.css           # Modular CSS3 stylesheet
+├── index.html          # Semantic HTML5 web page
+├── style.css           # Pure CSS3 stylesheet
 ├── README.md           # Project documentation and submission details
 │
-└── images/             # High-resolution food and bakery assets
+└── images/             # Optimized food, bakery, and cafe images
     ├── hero-kitchen.jpg
     ├── about-kitchen.jpg
     ├── garlic-bread.jpg
@@ -74,7 +75,7 @@ rustic-kitchen/
    ```bash
    cd rustic-kitchen
    ```
-2. Double-click `index.html` to open in any web browser.
+2. Double-click `index.html` or open it with any web browser.
 
 ---
 

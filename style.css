@@ -1,27 +1,31 @@
-/* ===================================================
+/* ==========================================================================
    Rustic Kitchen - Homestyle Bakery & Trattoria
-   Web Development CA Project 1
-   Tech Stack: Semantic HTML5 & CSS3
-   =================================================== */
+   Course: Web Development Foundations Lab (CA Project 1)
+   Tech Stack: Semantic HTML5 & Pure CSS3
+   Author: 1st Year B.Tech CSE (AI-First) Student
+   ========================================================================== */
 
-/* 1. CSS Custom Properties / Color Tokens */
+/* --------------------------------------------------------------------------
+   1. CSS Custom Properties / Color Variables (Lecture 5)
+   -------------------------------------------------------------------------- */
 :root {
     --primary: #b85d38;             /* Warm terracotta */
-    --primary-dark: #8c3f21;        /* Deep brick red */
+    --primary-hover: #9c4b2b;       /* Dark terracotta on hover */
     --primary-light: #faeee7;       /* Soft linen peach */
     --accent-gold: #c9933b;         /* Harvest wheat gold */
-    --accent-green: #3d6647;        /* Forest rosemary green */
-    --bg-main: #fbf9f5;             /* Warm alabaster canvas */
-    --bg-white: #ffffff;            /* Crisp card surface */
-    --text-heading: #2d241e;        /* Dark espresso */
+    --accent-green: #3d6647;        /* Olive rosemary green for veg tag */
+    --text-heading: #2d241e;        /* Dark espresso brown */
     --text-body: #665c54;           /* Warm charcoal grey */
-    --line-border: #ece3d8;         /* Subtle biscuit divider */
-    --shadow-card: 0 4px 14px rgba(45, 36, 30, 0.06);
-    --shadow-elevated: 0 10px 24px rgba(45, 36, 30, 0.12);
-    --anim-speed: 0.3s ease;
+    --bg-page: #fbf9f5;             /* Ivory cream canvas */
+    --bg-card: #ffffff;             /* Clean white card surface */
+    --border-line: #ece3d8;         /* Light biscuit divider */
+    --shadow-soft: 0 4px 12px rgba(45, 36, 30, 0.08);
+    --shadow-hover: 0 8px 24px rgba(45, 36, 30, 0.12);
 }
 
-/* 2. Global Resets */
+/* --------------------------------------------------------------------------
+   2. Global Reset & Box Model (Lecture 5: Box Model & Sizing)
+   -------------------------------------------------------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -34,23 +38,23 @@ html {
 }
 
 body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     color: var(--text-body);
-    background-color: var(--bg-main);
-    line-height: 1.65;
+    background-color: var(--bg-page);
+    line-height: 1.6;
 }
 
-h1, h2, h3, h4 {
-    font-family: 'Cormorant Garamond', serif;
+h1, h2, h3, h4, h5 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
     color: var(--text-heading);
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.25;
 }
 
 a {
     text-decoration: none;
     color: inherit;
-    transition: var(--anim-speed);
+    transition: 0.3s ease;
 }
 
 img {
@@ -59,17 +63,55 @@ img {
     display: block;
 }
 
-/* 3. Reusable Buttons */
+/* Standard Page Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 70px 24px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Reusable Section Headers */
+.section-badge {
+    display: inline-block;
+    padding: 5px 14px;
+    background-color: var(--primary-light);
+    color: var(--primary);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+    color: var(--text-heading);
+}
+
+.section-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-body);
+    max-width: 620px;
+    margin: 0 auto 40px auto;
+}
+
+/* Reusable Buttons */
 .btn {
     display: inline-block;
-    padding: 12px 26px;
+    padding: 12px 24px;
     border-radius: 8px;
-    font-weight: 500;
     font-size: 0.95rem;
+    font-weight: 500;
     cursor: pointer;
-    border: none;
     text-align: center;
-    transition: var(--anim-speed);
+    border: none;
+    transition: 0.3s ease;
 }
 
 .btn-primary {
@@ -78,758 +120,662 @@ img {
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(184, 93, 56, 0.28);
+    background-color: var(--primary-hover);
 }
 
 .btn-outline {
     background-color: transparent;
-    border: 2px solid var(--primary);
     color: var(--primary);
+    border: 2px solid var(--primary);
 }
 
 .btn-outline:hover {
     background-color: var(--primary);
     color: #ffffff;
-    transform: translateY(-2px);
 }
 
-.btn-nav {
-    background-color: var(--primary);
-    color: #ffffff;
-    padding: 8px 18px;
-    font-size: 0.85rem;
-}
-
-.btn-nav:hover {
-    background-color: var(--primary-dark);
-}
-
-/* 4. Top Header & Nav */
-.top-header {
+/* --------------------------------------------------------------------------
+   3. Header & Navigation (Lecture 4: Semantic Header & Lecture 6: Flexbox)
+   -------------------------------------------------------------------------- */
+.header {
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--border-line);
     position: sticky;
     top: 0;
-    background-color: #ffffff;
-    border-bottom: 1px solid var(--line-border);
-    z-index: 999;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 14px 24px;
+    padding: 16px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.brand a {
+.logo a {
     display: flex;
-    align-items: center;
-    gap: 12px;
+    flex-direction: column;
 }
 
-.brand-icon {
-    font-size: 2rem;
+.logo h1 {
+    font-size: 1.7rem;
+    color: var(--primary);
     line-height: 1;
 }
 
-.brand-text h1 {
-    font-size: 1.65rem;
-    color: var(--primary);
-    letter-spacing: -0.5px;
-}
-
-.brand-tag {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+.logo .tagline {
+    font-size: 0.72rem;
     color: var(--text-body);
-    display: block;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-top: 3px;
 }
 
-.main-menu .menu-list {
+.navbar .nav-links {
     list-style: none;
     display: flex;
     gap: 26px;
 }
 
-.menu-link {
+.nav-links .nav-link {
     font-size: 0.92rem;
     font-weight: 500;
     color: var(--text-heading);
-    padding: 6px 0;
-    position: relative;
 }
 
-.menu-link:hover,
-.menu-link.active {
+.nav-links .nav-link:hover {
     color: var(--primary);
 }
 
-.menu-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--primary);
+.nav-btn-box .btn {
+    padding: 9px 18px;
+    font-size: 0.88rem;
 }
 
-/* 5. Common Containers & Headings */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 24px;
-}
-
-.section-label {
-    display: inline-block;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.8px;
-    color: var(--primary);
-    margin-bottom: 8px;
-}
-
-.section-title {
-    font-size: 2.3rem;
-    margin-bottom: 16px;
-    color: var(--text-heading);
-}
-
-.section-subtitle {
-    font-size: 1.05rem;
-    color: var(--text-body);
-    max-width: 620px;
-    margin: 0 auto 44px auto;
-}
-
-.center-text {
-    text-align: center;
-}
-
-/* 6. Hero Section */
-.hero-block {
-    background: linear-gradient(145deg, #fbf8f4 0%, #f3ece3 100%);
-    padding: 70px 24px 90px 24px;
+/* --------------------------------------------------------------------------
+   4. Hero Section (Lecture 5 & 6: Hero Banner and Flexbox)
+   -------------------------------------------------------------------------- */
+.hero-section {
+    background: linear-gradient(135deg, #fbf8f4 0%, #f4ede3 100%);
     overflow: hidden;
 }
 
-.hero-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
+.hero-container {
     display: flex;
     align-items: center;
-    gap: 60px;
+    gap: 50px;
+    padding: 80px 24px;
 }
 
-.hero-info {
+.hero-text {
     flex: 1.1;
 }
 
-.hero-pill {
+.pill-tag {
     display: inline-block;
     padding: 6px 14px;
     background-color: var(--primary-light);
-    color: var(--primary-dark);
-    font-size: 0.82rem;
+    color: var(--primary);
+    font-size: 0.8rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
     border-radius: 20px;
     margin-bottom: 16px;
     border: 1px solid #ebd8ce;
 }
 
-.hero-heading {
-    font-size: 3.1rem;
+.hero-title {
+    font-size: 3rem;
     line-height: 1.15;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
-.hero-subtext {
+.hero-desc {
     font-size: 1.05rem;
     color: var(--text-body);
-    margin-bottom: 32px;
+    margin-bottom: 30px;
     max-width: 520px;
 }
 
-.hero-cta-group {
+.hero-buttons {
     display: flex;
     gap: 16px;
-    margin-bottom: 40px;
+    margin-bottom: 36px;
 }
 
-.hero-highlights {
+.hero-stats {
     display: flex;
-    gap: 32px;
-    border-top: 1px solid var(--line-border);
-    padding-top: 24px;
+    gap: 30px;
+    border-top: 1px solid var(--border-line);
+    padding-top: 22px;
 }
 
-.highlight-box {
+.stat-card {
     display: flex;
     flex-direction: column;
 }
 
-.highlight-val {
-    font-family: 'Cormorant Garamond', serif;
+.stat-num {
+    font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 1.6rem;
     font-weight: 700;
     color: var(--primary);
     line-height: 1.1;
 }
 
-.highlight-lbl {
+.stat-label {
     font-size: 0.8rem;
     color: var(--text-body);
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-.hero-visual {
+.hero-image-wrap {
     flex: 0.9;
-    position: relative;
+    position: relative; /* Container for absolute badge (Lecture 7) */
 }
 
-.hero-photo {
+.hero-img {
     width: 100%;
-    height: 470px;
+    height: 440px;
     object-fit: cover;
-    border-radius: 18px;
-    box-shadow: 0 16px 36px rgba(45, 36, 30, 0.12);
+    border-radius: 16px;
+    box-shadow: var(--shadow-hover);
 }
 
-.hero-artisan-badge {
+/* Lecture 7: CSS Position Absolute Badge */
+.hero-floating-badge {
     position: absolute;
-    bottom: -18px;
-    right: -15px;
+    bottom: -15px;
+    right: -10px;
     background-color: #ffffff;
-    padding: 14px 20px;
+    padding: 12px 18px;
     border-radius: 12px;
-    box-shadow: var(--shadow-elevated);
+    box-shadow: var(--shadow-hover);
     display: flex;
     align-items: center;
-    gap: 14px;
-    border: 1px solid var(--line-border);
-    animation: gentlePulse 3.5s ease-in-out infinite alternate;
+    gap: 12px;
+    border: 1px solid var(--border-line);
 }
 
-.hero-artisan-badge .badge-icon {
+.hero-floating-badge .badge-icon {
     font-size: 1.8rem;
 }
 
-.hero-artisan-badge h4 {
+.hero-floating-badge h4 {
     font-size: 0.95rem;
     margin-bottom: 2px;
 }
 
-.hero-artisan-badge p {
+.hero-floating-badge p {
     font-size: 0.78rem;
     color: var(--text-body);
 }
 
-@keyframes gentlePulse {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-7px); }
-}
-
-/* 7. Heritage / About Section */
-.heritage-section {
+/* --------------------------------------------------------------------------
+   5. About Section (Lecture 4: Section & Lecture 6: Flexbox)
+   -------------------------------------------------------------------------- */
+.about-section {
     background-color: #ffffff;
 }
 
-.heritage-layout {
+.about-layout {
     display: flex;
     align-items: center;
-    gap: 60px;
+    gap: 50px;
 }
 
-.heritage-image-wrapper {
+.about-image-wrap {
     flex: 1;
     position: relative;
 }
 
-.heritage-photo {
+.about-img {
     width: 100%;
-    height: 480px;
+    height: 460px;
     object-fit: cover;
     border-radius: 16px;
-    box-shadow: var(--shadow-card);
+    box-shadow: var(--shadow-soft);
 }
 
-.tradition-tag {
+/* Lecture 7: Floating badge with absolute positioning */
+.year-badge {
     position: absolute;
     top: 20px;
-    left: -15px;
+    left: -12px;
     background-color: var(--primary);
     color: #ffffff;
-    padding: 14px 18px;
-    border-radius: 10px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
     text-align: center;
-    box-shadow: var(--shadow-elevated);
 }
 
-.tag-title {
+.year-num {
     display: block;
     font-size: 0.8rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-.tag-desc {
+.year-text {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     font-weight: 700;
 }
 
-.heritage-content {
+.about-content {
     flex: 1.1;
 }
 
-.heritage-text {
-    font-size: 1.02rem;
+.about-paragraph {
+    font-size: 1rem;
     color: var(--text-body);
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 }
 
-.heritage-pillars {
-    margin-top: 30px;
+.features-list {
+    margin-top: 26px;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 16px;
 }
 
-.pillar {
+.feature-item {
     display: flex;
     align-items: flex-start;
-    gap: 16px;
+    gap: 14px;
     padding: 14px 18px;
-    background-color: var(--bg-main);
+    background-color: var(--bg-page);
     border-radius: 10px;
     border-left: 4px solid var(--primary);
-    transition: var(--anim-speed);
 }
 
-.pillar:hover {
-    transform: translateX(4px);
-    background-color: var(--primary-light);
-}
-
-.pillar-emoji {
+.feature-icon {
     font-size: 1.5rem;
     line-height: 1;
 }
 
-.pillar h4 {
+.feature-item h4 {
     font-size: 1.05rem;
     margin-bottom: 2px;
 }
 
-.pillar p {
-    font-size: 0.85rem;
+.feature-item p {
+    font-size: 0.88rem;
     color: var(--text-body);
 }
 
-/* 8. Menu Block & Dish Cards (CSS Grid) */
-.menu-block {
-    background-color: var(--bg-main);
+/* --------------------------------------------------------------------------
+   6. Menu Section (Lecture 6: CSS Grid & Lecture 7: CSS Position Absolute)
+   -------------------------------------------------------------------------- */
+.menu-section {
+    background-color: var(--bg-page);
 }
 
-.dishes-grid {
+.menu-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 26px;
-    margin-top: 20px;
+    gap: 24px;
 }
 
-.dish-card {
-    background-color: var(--bg-white);
-    border-radius: 14px;
-    border: 1px solid var(--line-border);
-    box-shadow: var(--shadow-card);
+.menu-card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid var(--border-line);
+    box-shadow: var(--shadow-soft);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: var(--anim-speed);
+    transition: 0.3s ease;
 }
 
-.dish-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-elevated);
-    border-color: #dfd4c7;
+.menu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
 }
 
-.dish-thumb-box {
-    position: relative;
+.card-img-wrap {
+    position: relative; /* Required for position: absolute badge */
     width: 100%;
-    height: 195px;
+    height: 190px;
     overflow: hidden;
-    background-color: #eee;
 }
 
-.dish-pic {
+.card-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
 }
 
-.dish-card:hover .dish-pic {
-    transform: scale(1.05);
-}
-
-/* Badges with CSS Position Absolute (Lecture 7) */
-.badge-ribbon {
+/* Lecture 7: Position Absolute Badges */
+.card-badge {
     position: absolute;
-    top: 12px;
-    left: 12px;
+    top: 10px;
+    left: 10px;
     padding: 4px 10px;
-    border-radius: 16px;
+    border-radius: 14px;
     font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
     color: #ffffff;
-}
-
-.ribbon-special {
     background-color: var(--primary);
 }
 
-.ribbon-hearth {
-    background-color: var(--accent-gold);
-}
-
-.badge-veg {
+.card-veg-badge {
     position: absolute;
-    top: 12px;
-    right: 12px;
-    background-color: rgba(255, 255, 255, 0.94);
-    color: var(--accent-green);
+    bottom: 10px;
+    right: 10px;
     padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 0.75rem;
+    border-radius: 10px;
+    font-size: 0.72rem;
     font-weight: 700;
-    border: 1px solid rgba(61, 102, 71, 0.3);
+    background-color: #ffffff;
+    color: var(--accent-green);
+    border: 1px solid #cce5d0;
 }
 
-.dish-details {
-    padding: 20px;
+.card-content {
+    padding: 18px;
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex-grow: 1;
 }
 
-.dish-header {
+.card-heading {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 8px;
     margin-bottom: 4px;
 }
 
-.dish-title {
-    font-size: 1.25rem;
+.dish-name {
+    font-size: 1.15rem;
     color: var(--text-heading);
-    font-weight: 700;
 }
 
-.dish-cost {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
+.dish-price {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.15rem;
     font-weight: 700;
     color: var(--primary);
-    white-space: nowrap;
 }
 
 .dish-category {
     font-size: 0.75rem;
+    color: var(--primary);
     text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--accent-gold);
-    font-weight: 700;
-    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    font-weight: 500;
 }
 
-.dish-description {
+.dish-desc {
     font-size: 0.88rem;
     color: var(--text-body);
     line-height: 1.5;
-    margin-top: auto;
 }
 
-/* 9. Specials & Offers */
-.specials-wrapper {
+/* --------------------------------------------------------------------------
+   7. Specials & Offers Section (Lecture 5 & 6: Flexbox Layout)
+   -------------------------------------------------------------------------- */
+.specials-section {
     background-color: #ffffff;
 }
 
-.hearth-promo-box {
+.offer-banner {
+    background: linear-gradient(135deg, #fbf6f0 0%, #faeee7 100%);
+    border-radius: 16px;
+    border: 1px solid var(--border-line);
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #f7eee7 0%, #fae9dc 100%);
-    border-radius: 18px;
-    border: 1px solid #ead0c1;
     overflow: hidden;
-    box-shadow: var(--shadow-card);
-    margin-bottom: 36px;
+    margin-bottom: 30px;
 }
 
-.promo-text-side {
-    flex: 1.1;
-    padding: 48px;
+.offer-text {
+    flex: 1.2;
+    padding: 44px;
 }
 
-.promo-badge {
+.offer-tag {
     display: inline-block;
-    padding: 4px 12px;
+    padding: 5px 12px;
     background-color: var(--primary);
     color: #ffffff;
+    border-radius: 16px;
     font-size: 0.78rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-radius: 20px;
-    margin-bottom: 12px;
-}
-
-.promo-title {
-    font-size: 2.3rem;
-    line-height: 1.2;
     margin-bottom: 14px;
 }
 
-.promo-description {
+.offer-title {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+}
+
+.offer-desc {
     font-size: 1rem;
     color: var(--text-body);
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     max-width: 500px;
 }
 
-.coupon-display {
+.promo-coupon {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 18px;
+    padding: 8px 16px;
     background-color: #ffffff;
     border: 2px dashed var(--primary);
     border-radius: 8px;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
 }
 
-.coupon-display span {
+.promo-coupon span {
     font-size: 0.85rem;
     color: var(--text-body);
 }
 
-.coupon-display strong {
-    font-size: 1.1rem;
+.promo-coupon strong {
+    font-size: 1.05rem;
     color: var(--primary);
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
     font-family: monospace;
 }
 
-.promo-image-side {
-    flex: 0.9;
-    height: 380px;
+.offer-image-box {
+    flex: 0.8;
+    height: 340px;
 }
 
-.promo-img {
+.offer-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.perks-row {
+.perks-grid {
     display: flex;
-    gap: 24px;
+    gap: 20px;
 }
 
-.perk-card {
+.perk-box {
     flex: 1;
     display: flex;
     align-items: flex-start;
-    gap: 18px;
-    padding: 24px;
-    background-color: var(--bg-main);
-    border: 1px solid var(--line-border);
+    gap: 16px;
+    padding: 22px;
+    background-color: var(--bg-page);
+    border: 1px solid var(--border-line);
     border-radius: 12px;
-    transition: var(--anim-speed);
 }
 
-.perk-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-card);
-}
-
-.perk-icon {
-    font-size: 2.2rem;
+.perk-emoji {
+    font-size: 2rem;
     line-height: 1;
 }
 
-.perk-details h4 {
-    font-size: 1.2rem;
-    margin-bottom: 6px;
+.perk-text h4 {
+    font-size: 1.15rem;
+    margin-bottom: 4px;
 }
 
-.perk-details p {
-    font-size: 0.9rem;
+.perk-text p {
+    font-size: 0.88rem;
     color: var(--text-body);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
-.perk-note {
+.perk-timing {
     display: inline-block;
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.8px;
+    letter-spacing: 0.5px;
     color: var(--primary);
 }
 
-/* 10. Customer Reviews / Testimonials */
-.reviews-section {
-    background-color: var(--bg-main);
+/* --------------------------------------------------------------------------
+   8. Customer Testimonials (Lecture 6: Grid)
+   -------------------------------------------------------------------------- */
+.testimonials-section {
+    background-color: var(--bg-page);
 }
 
 .reviews-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    gap: 24px;
 }
 
-.review-box {
-    background-color: var(--bg-white);
-    padding: 32px 26px;
-    border-radius: 14px;
-    border: 1px solid var(--line-border);
-    box-shadow: var(--shadow-card);
+.review-card {
+    background-color: var(--bg-card);
+    padding: 28px 22px;
+    border-radius: 12px;
+    border: 1px solid var(--border-line);
+    box-shadow: var(--shadow-soft);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: var(--anim-speed);
-}
-
-.review-box:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-elevated);
 }
 
 .stars {
     color: #e5a93b;
     font-size: 1.1rem;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     letter-spacing: 2px;
 }
 
-.review-quote {
-    font-size: 0.96rem;
+.review-text {
+    font-size: 0.95rem;
     font-style: italic;
     color: var(--text-heading);
-    line-height: 1.6;
-    margin-bottom: 24px;
+    line-height: 1.55;
+    margin-bottom: 20px;
 }
 
-.reviewer {
+.reviewer-info {
     display: flex;
     align-items: center;
-    gap: 14px;
-    border-top: 1px solid var(--line-border);
-    padding-top: 16px;
+    gap: 12px;
+    border-top: 1px solid var(--border-line);
+    padding-top: 14px;
 }
 
-.avatar {
-    width: 44px;
-    height: 44px;
+.reviewer-avatar {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: var(--primary-light);
     color: var(--primary);
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 2px solid #ecd5c7;
 }
 
-.reviewer h5 {
-    font-size: 1.1rem;
+.reviewer-info h5 {
+    font-size: 1.05rem;
     margin-bottom: 2px;
 }
 
-.reviewer span {
+.reviewer-info span {
     font-size: 0.8rem;
     color: var(--text-body);
 }
 
-/* 11. Operating Hours Table (HTML Table - Lecture 4) */
+/* --------------------------------------------------------------------------
+   9. Operating Hours Table (Lecture 4: HTML Table, thead, tbody, colspan)
+   -------------------------------------------------------------------------- */
 .timings-section {
     background-color: #ffffff;
 }
 
-.table-container {
+.table-wrap {
     overflow-x: auto;
     background-color: #ffffff;
-    border-radius: 14px;
-    border: 1px solid var(--line-border);
-    box-shadow: var(--shadow-card);
+    border-radius: 12px;
+    border: 1px solid var(--border-line);
+    box-shadow: var(--shadow-soft);
 }
 
-.schedule-table {
+.hours-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
 }
 
-.schedule-table thead tr {
+.hours-table thead tr {
     background-color: var(--primary-light);
 }
 
-.schedule-table th {
+.hours-table th {
     padding: 16px 20px;
     text-align: left;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Cormorant Garamond', Georgia, serif;
     font-weight: 700;
-    font-size: 1.2rem;
-    color: var(--primary-dark);
+    font-size: 1.15rem;
+    color: var(--text-heading);
     border-bottom: 2px solid #e5cdbe;
 }
 
-.schedule-table td {
-    padding: 18px 20px;
-    border-bottom: 1px solid var(--line-border);
+.hours-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-line);
     color: var(--text-heading);
 }
 
-.schedule-table tbody tr:last-child td {
+.hours-table tbody tr:last-child td {
     border-bottom: none;
 }
 
-.schedule-table tbody tr:hover {
+.hours-table tbody tr:hover {
     background-color: #faf6f0;
 }
 
-.closed-cell {
+.closed-notice {
     color: #9e4726;
     font-weight: 500;
     font-style: italic;
 }
 
-.badge-status {
+.tag-status {
     display: inline-block;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 14px;
+    font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0.5px;
 }
 
-.status-normal {
+.status-open {
     background-color: #e8f5e9;
     color: #2e7d32;
     border: 1px solid #c8e6c9;
@@ -847,125 +793,122 @@ img {
     border: 1px solid #ffcdd2;
 }
 
-/* 12. Booking Section & Forms (HTML Forms - Lecture 3) */
+/* --------------------------------------------------------------------------
+   10. Booking Section & Forms (Lecture 3: HTML Forms, Inputs, Select, Textarea)
+   -------------------------------------------------------------------------- */
 .booking-section {
-    background-color: var(--bg-main);
+    background-color: var(--bg-page);
 }
 
-.booking-split-layout {
+.booking-layout {
     display: flex;
-    gap: 50px;
+    gap: 40px;
     align-items: flex-start;
 }
 
-.kitchen-info-box {
+.booking-info {
     flex: 1;
 }
 
-.kitchen-lead {
-    font-size: 1rem;
+.booking-lead {
+    font-size: 0.98rem;
     color: var(--text-body);
-    margin-bottom: 30px;
-}
-
-.address-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-bottom: 32px;
-}
-
-.address-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-}
-
-.card-icon {
-    font-size: 1.6rem;
-    line-height: 1;
-    background-color: #ffffff;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: var(--shadow-card);
-    border: 1px solid var(--line-border);
-}
-
-.address-card h4 {
-    font-size: 1.05rem;
-    margin-bottom: 2px;
-}
-
-.address-card p,
-.address-card a {
-    font-size: 0.9rem;
-    color: var(--text-body);
-}
-
-.address-card a:hover {
-    color: var(--primary);
-}
-
-.hearth-features-box {
-    background-color: #ffffff;
-    padding: 24px;
-    border-radius: 12px;
-    border: 1px solid var(--line-border);
-    box-shadow: var(--shadow-card);
-}
-
-.hearth-features-box h4 {
-    font-size: 1.05rem;
-    margin-bottom: 14px;
-    color: var(--primary-dark);
-}
-
-.features-checklist {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-size: 0.88rem;
-    color: var(--text-heading);
-}
-
-/* Reservation Form */
-.reservation-form-container {
-    flex: 1.2;
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 16px;
-    border: 1px solid var(--line-border);
-    box-shadow: var(--shadow-elevated);
-}
-
-.form-title-group {
     margin-bottom: 24px;
 }
 
-.form-title-group h3 {
-    font-size: 1.7rem;
-    margin-bottom: 6px;
+.contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 28px;
 }
 
-.form-title-group p {
-    font-size: 0.9rem;
+.contact-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.contact-icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    background-color: #ffffff;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-line);
+}
+
+.contact-card h4 {
+    font-size: 1rem;
+    margin-bottom: 2px;
+}
+
+.contact-card p {
+    font-size: 0.88rem;
     color: var(--text-body);
 }
 
-.input-grid {
+.amenities-box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border-line);
+    box-shadow: var(--shadow-soft);
+}
+
+.amenities-box h4 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.amenities-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.86rem;
+    color: var(--text-heading);
+}
+
+/* Pure CSS Form Styling (Lecture 3 & 5) */
+.booking-form-wrap {
+    flex: 1.2;
+    background-color: #ffffff;
+    padding: 36px;
+    border-radius: 14px;
+    border: 1px solid var(--border-line);
+    box-shadow: var(--shadow-hover);
+}
+
+.form-header {
+    margin-bottom: 20px;
+}
+
+.form-header h3 {
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+}
+
+.form-header p {
+    font-size: 0.88rem;
+    color: var(--text-body);
+}
+
+.form-row {
     display: flex;
     gap: 16px;
 }
 
-.field-item {
+.form-group {
     display: flex;
     flex-direction: column;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     flex: 1;
 }
 
-.field-item label {
+.form-group label {
     font-size: 0.85rem;
     font-weight: 500;
     margin-bottom: 6px;
@@ -976,147 +919,138 @@ img {
     color: var(--primary);
 }
 
-.field-item input,
-.field-item select,
-.field-item textarea {
+.form-group input,
+.form-group select,
+.form-group textarea {
     width: 100%;
-    padding: 12px 14px;
+    padding: 10px 12px;
     border: 1px solid #ddd3c7;
     border-radius: 8px;
     font-family: inherit;
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     color: var(--text-heading);
     background-color: #faf9f6;
-    transition: var(--anim-speed);
+    transition: 0.3s ease;
 }
 
-.field-item input:focus,
-.field-item select:focus,
-.field-item textarea:focus {
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(184, 93, 56, 0.15);
     background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(184, 93, 56, 0.15);
 }
 
-.btn-fullwidth {
+.btn-block {
     width: 100%;
-    padding: 14px;
-    font-size: 1rem;
+    padding: 12px;
+    font-size: 0.95rem;
     font-weight: 700;
-    margin-top: 10px;
+    margin-top: 6px;
 }
 
-/* 13. Footer Section */
-.footer-section {
+/* --------------------------------------------------------------------------
+   11. Footer Section (Lecture 4: Semantic Footer & Lecture 6: Flexbox)
+   -------------------------------------------------------------------------- */
+.footer {
     background-color: #271f1a;
     color: #e5dcd3;
-    padding-top: 60px;
+    padding-top: 50px;
     border-top: 4px solid var(--primary);
 }
 
-.footer-wrap {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px 50px 24px;
+.footer-content {
     display: flex;
     justify-content: space-between;
-    gap: 50px;
+    gap: 40px;
+    padding: 0 24px 40px 24px;
 }
 
-.footer-main-col {
+.footer-col {
+    flex: 1;
+}
+
+.footer-about {
     flex: 1.3;
 }
 
-.footer-brand h2 {
+.footer-about h3 {
     color: #ffffff;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin-bottom: 2px;
 }
 
-.footer-brand span {
+.footer-tagline {
     display: block;
     font-size: 0.75rem;
     color: var(--accent-gold);
     text-transform: uppercase;
-    letter-spacing: 1.8px;
-    margin-bottom: 16px;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
 }
 
-.footer-desc {
-    font-size: 0.9rem;
+.footer-about p {
+    font-size: 0.88rem;
     color: #b7aba0;
-    line-height: 1.6;
+    line-height: 1.55;
 }
 
-.footer-nav-col,
-.footer-schedule-col {
-    flex: 1;
-}
-
-.footer-section h4 {
+.footer-col h4 {
     color: #ffffff;
-    font-size: 1.15rem;
-    margin-bottom: 18px;
+    font-size: 1.1rem;
+    margin-bottom: 14px;
     position: relative;
-    padding-bottom: 8px;
+    padding-bottom: 6px;
 }
 
-.footer-section h4::after {
+.footer-col h4::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 32px;
+    width: 28px;
     height: 2px;
     background-color: var(--primary);
 }
 
-.footer-menu {
+.footer-links {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
-.footer-menu a {
+.footer-links a {
     color: #b7aba0;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
 }
 
-.footer-menu a:hover {
+.footer-links a:hover {
     color: #ffffff;
-    padding-left: 5px;
+    padding-left: 4px;
 }
 
-.footer-schedule-col p {
-    font-size: 0.9rem;
+.footer-col p {
+    font-size: 0.88rem;
     color: #b7aba0;
     margin-bottom: 6px;
 }
 
-.social-pill {
-    margin-top: 18px;
+.social-text {
+    margin-top: 12px;
+    color: var(--accent-gold) !important;
+    font-weight: 500;
 }
 
-.social-pill span {
-    display: inline-block;
-    padding: 6px 12px;
-    background-color: rgba(255, 255, 255, 0.08);
-    border-radius: 6px;
-    font-size: 0.8rem;
-    color: #e5dcd3;
-}
-
-.footer-bar {
+.footer-bottom {
     background-color: #1c1511;
-    padding: 20px 24px;
+    padding: 18px 24px;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.footer-bar-container {
-    max-width: 1200px;
-    margin: 0 auto;
+.footer-bottom-flex {
+    padding: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1124,84 +1058,82 @@ img {
     color: #9c9085;
 }
 
-.developer-tag {
+.course-credit {
     color: #cec1b4;
 }
 
-.scroll-top {
+.back-to-top {
     color: var(--accent-gold);
     font-weight: 700;
 }
 
-.scroll-top:hover {
+.back-to-top:hover {
     color: #ffffff;
 }
 
-/* ===================================================
-   14. Responsive Layouts & Media Queries
-   Web Development CA Project - Mobile & Tablet Views
-   =================================================== */
+/* --------------------------------------------------------------------------
+   12. Responsive Layouts & Media Queries (Lecture 5 & 6)
+   -------------------------------------------------------------------------- */
 
 /* Tablet View (Max Width: 1024px) */
 @media screen and (max-width: 1024px) {
-    .hero-wrapper {
-        gap: 36px;
+    .hero-container {
+        gap: 30px;
     }
 
-    .hero-heading {
-        font-size: 2.6rem;
+    .hero-title {
+        font-size: 2.5rem;
     }
 
-    .heritage-layout {
-        gap: 40px;
+    .about-layout {
+        gap: 30px;
     }
 
     /* Menu: Switch from 4 to 2 columns */
-    .dishes-grid {
+    .menu-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 22px;
+        gap: 20px;
     }
 
-    .hearth-promo-box {
+    .offer-banner {
         flex-direction: column;
     }
 
-    .promo-image-side {
+    .offer-image-box {
         width: 100%;
-        height: 280px;
+        height: 260px;
     }
 
-    .promo-text-side {
-        padding: 36px;
+    .offer-text {
+        padding: 30px;
     }
 
-    .booking-split-layout {
-        gap: 36px;
+    .booking-layout {
+        gap: 30px;
     }
 }
 
 /* Mobile Devices (Max Width: 768px) */
 @media screen and (max-width: 768px) {
-    /* Header */
+    /* Header Stack */
     .nav-container {
         flex-direction: column;
-        gap: 14px;
-        padding: 12px 18px;
+        gap: 12px;
+        padding: 12px 16px;
     }
 
-    .main-menu .menu-list {
+    .navbar .nav-links {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 12px 18px;
+        gap: 10px 16px;
     }
 
-    .nav-action {
+    .nav-btn-box {
         display: none;
     }
 
-    /* Section Spacing */
     .container {
-        padding: 50px 18px;
+        padding: 50px 16px;
     }
 
     .section-title {
@@ -1209,115 +1141,111 @@ img {
     }
 
     /* Hero Section */
-    .hero-block {
-        padding: 40px 18px 60px 18px;
-    }
-
-    .hero-wrapper {
+    .hero-container {
         flex-direction: column;
         text-align: center;
+        padding: 40px 16px;
     }
 
-    .hero-subtext {
+    .hero-desc {
         margin-left: auto;
         margin-right: auto;
     }
 
-    .hero-cta-group {
+    .hero-buttons {
         justify-content: center;
         flex-wrap: wrap;
     }
 
-    .hero-highlights {
+    .hero-stats {
         justify-content: center;
         gap: 20px;
     }
 
-    .hero-visual {
+    .hero-image-wrap {
         width: 100%;
     }
 
-    .hero-photo {
-        height: 320px;
+    .hero-img {
+        height: 300px;
     }
 
-    .hero-artisan-badge {
+    .hero-floating-badge {
         bottom: -15px;
         left: 50%;
         right: auto;
-        transform: translateX(-50%) !important;
-        animation: none;
+        transform: translateX(-50%);
         width: 90%;
         justify-content: center;
     }
 
-    /* Heritage Section */
-    .heritage-layout {
+    /* About Section */
+    .about-layout {
         flex-direction: column;
-        gap: 36px;
+        gap: 30px;
     }
 
-    .heritage-image-wrapper {
+    .about-image-wrap {
         width: 100%;
     }
 
-    .heritage-photo {
-        height: 320px;
+    .about-img {
+        height: 300px;
     }
 
-    .tradition-tag {
+    .year-badge {
         left: 10px;
         top: 10px;
-        padding: 10px 14px;
+        padding: 8px 12px;
     }
 
-    /* Dishes Grid: 1 Column on Mobile */
-    .dishes-grid {
+    /* Menu: 1 Column on Mobile */
+    .menu-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 18px;
     }
 
-    /* Perks: Stack into 1 column */
-    .perks-row {
+    /* Specials Perks: 1 Column */
+    .perks-grid {
         flex-direction: column;
     }
 
-    /* Reviews: Stack into 1 column */
+    /* Testimonials: 1 Column */
     .reviews-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 18px;
     }
 
-    /* Booking Layout */
-    .booking-split-layout {
+    /* Table Horizontal Scroll */
+    .table-wrap {
+        border-radius: 8px;
+    }
+
+    /* Booking Form */
+    .booking-layout {
         flex-direction: column;
-        gap: 40px;
+        gap: 30px;
     }
 
-    .reservation-form-container {
-        padding: 26px 18px;
+    .booking-form-wrap {
+        padding: 24px 16px;
     }
 
-    .input-grid {
+    .form-row {
         flex-direction: column;
         gap: 0;
     }
 
     /* Footer */
-    .footer-wrap {
+    .footer-content {
         flex-direction: column;
-        gap: 32px;
+        gap: 26px;
         padding-bottom: 30px;
     }
 
-    .footer-bar-container {
+    .footer-bottom-flex {
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
         text-align: center;
     }
 }
-
-
-
-
-

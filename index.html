@@ -4,125 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rustic Kitchen - Homestyle Bakery & Trattoria</title>
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Cormorant Garamond for headings, DM Sans for clean body text -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Main Stylesheet -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header & Navigation -->
-    <header class="top-header">
+    <!-- 1. Header & Navigation Bar (Lecture 4: Semantic Header and Nav) -->
+    <header class="header">
         <div class="nav-container">
-            <div class="brand">
+            <div class="logo">
                 <a href="#home">
-                    <span class="brand-icon">🌾</span>
-                    <div class="brand-text">
-                        <h1>Rustic Kitchen</h1>
-                        <span class="brand-tag">Homestyle Bakery & Trattoria</span>
-                    </div>
+                    <h1>🌾 Rustic Kitchen</h1>
+                    <span class="tagline">Homestyle Bakery & Kitchen</span>
                 </a>
             </div>
-            <nav class="main-menu">
-                <ul class="menu-list">
-                    <li><a href="#home" class="menu-link active">Home</a></li>
-                    <li><a href="#about" class="menu-link">Our Heritage</a></li>
-                    <li><a href="#menu" class="menu-link">Bakery & Food</a></li>
-                    <li><a href="#specials" class="menu-link">Chef Specials</a></li>
-                    <li><a href="#timings" class="menu-link">Timings</a></li>
-                    <li><a href="#book" class="menu-link">Reserve</a></li>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#menu" class="nav-link">Bakery & Menu</a></li>
+                    <li><a href="#specials" class="nav-link">Offers</a></li>
+                    <li><a href="#timings" class="nav-link">Timings</a></li>
+                    <li><a href="#book" class="nav-link">Reserve Table</a></li>
                 </ul>
             </nav>
-            <div class="nav-action">
-                <a href="#book" class="btn btn-nav">Book a Table</a>
+            <div class="nav-btn-box">
+                <a href="#book" class="btn btn-primary">Book Table</a>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- 1. Hero Section -->
-        <section id="home" class="hero-block">
-            <div class="hero-wrapper">
-                <div class="hero-info">
-                    <span class="hero-pill">Handcrafted Daily · Pune</span>
-                    <h2 class="hero-heading">Slow-Fermented Breads & Hearty Wood-Fired Trattoria.</h2>
-                    <p class="hero-subtext">
-                        Welcome to Rustic Kitchen. Where old-world stone ovens meet fresh seasonal harvests. We bake artisanal sourdough loaves, hand-stretched pizzas, and comforting pasta plates every morning.
+        <!-- 2. Hero Section (Lecture 5 & 6: Hero Banner and Flexbox) -->
+        <section id="home" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-text">
+                    <span class="pill-tag">Freshly Baked Every Morning · Pune</span>
+                    <h2 class="hero-title">Warm Sourdough Breads & Wood-Fired Kitchen.</h2>
+                    <p class="hero-desc">
+                        Welcome to Rustic Kitchen. We are an artisanal bakery and Italian kitchen serving slow-fermented breads, wood-fired pizzas, handmade pasta, and fresh bakery desserts every day.
                     </p>
-                    <div class="hero-cta-group">
-                        <a href="#menu" class="btn btn-primary">View Our Menu</a>
-                        <a href="#about" class="btn btn-outline">Our Heritage</a>
+                    <div class="hero-buttons">
+                        <a href="#menu" class="btn btn-primary">Explore Our Menu</a>
+                        <a href="#about" class="btn btn-outline">Our Story</a>
                     </div>
-                    <div class="hero-highlights">
-                        <div class="highlight-box">
-                            <span class="highlight-val">36 Hrs</span>
-                            <span class="highlight-lbl">Slow Ferment</span>
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <span class="stat-num">36 Hrs</span>
+                            <span class="stat-label">Slow Fermentation</span>
                         </div>
-                        <div class="highlight-box">
-                            <span class="highlight-val">450°C</span>
-                            <span class="highlight-lbl">Wood-Fired Oven</span>
+                        <div class="stat-card">
+                            <span class="stat-num">450°C</span>
+                            <span class="stat-label">Wood-Fired Oven</span>
                         </div>
-                        <div class="highlight-box">
-                            <span class="highlight-val">Pure</span>
-                            <span class="highlight-lbl">Olive Oil & Herbs</span>
+                        <div class="stat-card">
+                            <span class="stat-num">100%</span>
+                            <span class="stat-label">Natural Ingredients</span>
                         </div>
                     </div>
                 </div>
-                <div class="hero-visual">
-                    <img src="images/hero-kitchen.jpg" alt="Artisanal sourdough bread loaves at Rustic Kitchen" class="hero-photo">
-                    <div class="hero-artisan-badge">
+                <div class="hero-image-wrap">
+                    <img src="images/hero-kitchen.jpg" alt="Fresh artisan sourdough bread at Rustic Kitchen" class="hero-img">
+                    <!-- Position Absolute Badge (Lecture 7) -->
+                    <div class="hero-floating-badge">
                         <span class="badge-icon">🥖</span>
                         <div>
-                            <h4>Hearth-Baked Daily</h4>
-                            <p>Fresh out of oven by 8:00 AM</p>
+                            <h4>Oven Fresh Daily</h4>
+                            <p>First batch ready at 8:00 AM</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 2. Heritage / About Section -->
-        <section id="about" class="heritage-section">
+        <!-- 3. About Section (Lecture 4: Section and Article) -->
+        <section id="about" class="about-section">
             <div class="container">
-                <div class="heritage-layout">
-                    <div class="heritage-image-wrapper">
-                        <img src="images/about-kitchen.jpg" alt="Baker shaping artisanal dough" class="heritage-photo">
-                        <div class="tradition-tag">
-                            <span class="tag-title">Family Tradition</span>
-                            <span class="tag-desc">Since 2023</span>
+                <div class="about-layout">
+                    <div class="about-image-wrap">
+                        <img src="images/about-kitchen.jpg" alt="Baker shaping bread dough" class="about-img">
+                        <!-- Floating year tag (Lecture 7: Position Absolute) -->
+                        <div class="year-badge">
+                            <span class="year-num">Since 2023</span>
+                            <span class="year-text">Artisan Heritage</span>
                         </div>
                     </div>
-                    <div class="heritage-content">
-                        <span class="section-label">Our Kitchen Heritage</span>
-                        <h2 class="section-title">Rooted in Tradition, Baked with Patience.</h2>
-                        <p class="heritage-text">
-                            Rustic Kitchen began with a simple belief: real food takes time. In an era of hurried dining, we slow down. Our bakers wake up before dawn to shape organic sourdough starters nurtured through generations.
+                    <div class="about-content">
+                        <span class="section-badge">Our Kitchen Story</span>
+                        <h2 class="section-title">Baked with Care, Served with Love.</h2>
+                        <p class="about-paragraph">
+                            Rustic Kitchen was started with a simple passion: to bring the authentic taste of slow-baked breads and traditional wood-fired Italian cooking to our neighborhood. We believe good food takes patience and good ingredients.
                         </p>
-                        <p class="heritage-text">
-                            From our hand-tossed Neapolitan-style pizzas blistered over beechwood logs to hand-rolled lasagna sheets simmered in slow-cooked tomato sugo, every dish honors honest, unhurried craftsmanship.
+                        <p class="about-paragraph">
+                            Our bakers start early every morning to prepare our natural sourdough starters. From thin-crust Neapolitan pizzas baked over natural wood logs to comforting oven-baked pasta, we make every dish fresh to order.
                         </p>
-                        <div class="heritage-pillars">
-                            <div class="pillar">
-                                <span class="pillar-emoji">🔥</span>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">🔥</span>
                                 <div>
-                                    <h4>Beechwood Stone Hearth</h4>
-                                    <p>Natural wood fire locks in crisp crusts and smoky aroma.</p>
+                                    <h4>Wood-Fired Stone Oven</h4>
+                                    <p>High temperature baking gives our pizzas an authentic crisp crust and smoky flavor.</p>
                                 </div>
                             </div>
-                            <div class="pillar">
-                                <span class="pillar-emoji">🌾</span>
+                            <div class="feature-item">
+                                <span class="feature-icon">🌾</span>
                                 <div>
-                                    <h4>Stone-Ground Flours</h4>
-                                    <p>Whole grain flours retaining natural wheat germ and nutrients.</p>
+                                    <h4>Natural Stone-Ground Flours</h4>
+                                    <p>We use wholesome unbleached flours without any artificial preservatives or improvers.</p>
                                 </div>
                             </div>
-                            <div class="pillar">
-                                <span class="pillar-emoji">🍅</span>
+                            <div class="feature-item">
+                                <span class="feature-icon">🍅</span>
                                 <div>
-                                    <h4>Vine-Ripened Harvests</h4>
-                                    <p>Plum tomatoes, sweet basil, and extra virgin olive oil only.</p>
+                                    <h4>Farm Fresh Produce</h4>
+                                    <p>Fresh tomatoes, basil, cold-pressed olive oil, and real dairy mozzarella in every dish.</p>
                                 </div>
                             </div>
                         </div>
@@ -131,233 +130,237 @@
             </div>
         </section>
 
-        <!-- 3. Bakery & Trattoria Menu Section -->
-        <section id="menu" class="menu-block">
+        <!-- 4. Menu Section (Lecture 6 & 7: CSS Grid and Position Absolute Badges) -->
+        <section id="menu" class="menu-section">
             <div class="container">
-                <div class="section-heading-group center-text">
-                    <span class="section-label">Oven & Hearth Offerings</span>
-                    <h2 class="section-title">Fresh from Our Kitchen</h2>
+                <div class="section-header text-center">
+                    <span class="section-badge">Our Fresh Menu</span>
+                    <h2 class="section-title">Handcrafted Food & Bakery</h2>
                     <p class="section-subtitle">
-                        Every loaf is slow-fermented, every pizza is wood-fired, and every pasta sauce is prepared daily with honest ingredients.
+                        Every item on our menu is prepared fresh using wholesome ingredients, baked daily in our kitchen.
                     </p>
                 </div>
 
-                <div class="dishes-grid">
+                <!-- 8 Menu Cards inside CSS Grid (Lecture 6) -->
+                <div class="menu-grid">
                     <!-- Dish 1 -->
-                    <article class="dish-card">
-                        <div class="dish-thumb-box">
-                            <img src="images/garlic-bread.jpg" alt="Artisanal Garlic Sourdough Bread" class="dish-pic">
-                            <span class="badge-ribbon ribbon-hearth">Oven Fresh</span>
-                            <span class="badge-veg">🌱 Pure Veg</span>
+                    <article class="menu-card">
+                        <div class="card-img-wrap">
+                            <img src="images/garlic-bread.jpg" alt="Artisanal Garlic Sourdough Bread" class="card-img">
+                            <!-- Lecture 7: Position Absolute Badges -->
+                            <span class="card-badge badge-tag">Oven Fresh</span>
+                            <span class="card-veg-badge">🌱 Veg</span>
                         </div>
-                        <div class="dish-details">
-                            <div class="dish-header">
-                                <h3 class="dish-title">Artisanal Garlic Sourdough</h3>
-                                <span class="dish-cost">₹159</span>
+                        <div class="card-content">
+                            <div class="card-heading">
+                                <h3 class="dish-name">Classic Garlic Sourdough</h3>
+                                <span class="dish-price">₹159</span>
                             </div>
                             <span class="dish-category">Hearth Bakes & Starters</span>
-                            <p class="dish-description">
-                                Crusty sourdough loaf sliced thick and brushed with whipped roasted garlic butter, parsley, and sea salt flakes.
+                            <p class="dish-desc">
+                                Freshly baked sourdough bread sliced thick and toasted with garlic butter, parsley, and sea salt. Crisp on the outside and soft inside.
                             </p>
                         </div>
                     </article>
 
                     <!-- Dish 2 -->
-                    <article class="dish-card">
-                        <div class="dish-thumb-box">
-                            <img src="images/bruschetta.jpg" alt="Tomato and Basil Bruschetta" class="dish-pic">
-                            <span class="badge-veg">🌱 Pure Veg</span>
+                    <article class="menu-card">
+                        <div class="card-img-wrap">
+                            <img src="images/bruschetta.jpg" alt="Fresh Tomato Basil Bruschetta" class="card-img">
+                            <span class="card-badge badge-tag">Popular</span>
+                            <span class="card-veg-badge">🌱 Veg</span>
                         </div>
-                        <div class="dish-details">
-                            <div class="dish-header">
-                                <h3 class="dish-title">Tomato Basil Bruschetta</h3>
-                                <span class="dish-cost">₹179</span>
+                        <div class="card-content">
+                            <div class="card-heading">
+                                <h3 class="dish-name">Tomato Basil Bruschetta</h3>
+                                <span class="dish-price">₹179</span>
                             </div>
                             <span class="dish-category">Hearth Bakes & Starters</span>
-                            <p class="dish-description">
-                                Grilled rustic ciabatta rubbed with garlic, topped with marinated cherry tomatoes, torn sweet basil, and aged balsamic glaze.
+                            <p class="dish-desc">
+                                Toasted slices of rustic Italian bread rubbed with garlic and topped with diced fresh ripe tomatoes, sweet basil, and extra virgin olive oil.
                             </p>
                         </div>
                     </article>
 
                     <!-- Dish 3 -->
-                    <article class="dish-card">
-                        <div class="dish-thumb-box">
-                            <img src="images/pizza.jpg" alt="Wood-Fired Margherita Pizza" class="dish-pic">
-                            <span class="badge-ribbon ribbon-special">Signature</span>
-                            <span class="badge-veg">🌱 Pure Veg</span>
+                    <article class="menu-card">
+                        <div class="card-img-wrap">
+                            <img src="images/pizza.jpg" alt="Wood-Fired Margherita Pizza" class="card-img">
+                            <span class="card-badge badge-tag">Signature</span>
+                            <span class="card-veg-badge">🌱 Veg</span>
                         </div>
-                        <div class="dish-details">
-                            <div class="dish-header">
-                                <h3 class="dish-title">Wood-Fired Margherita</h3>
-                                <span class="dish-cost">₹299</span>
+                        <div class="card-content">
+                            <div class="card-heading">
+                                <h3 class="dish-name">Wood-Fired Margherita</h3>
+                                <span class="dish-price">₹299</span>
                             </div>
                             <span class="dish-category">Wood-Fired Mains</span>
-                            <p class="dish-description">
-                                San Marzano tomato sugo, fresh Fior di Latte mozzarella, fragrant basil leaves, and extra virgin olive oil on blistered crust.
+                            <p class="dish-desc">
+                                Classic thin-crust pizza baked with rich tomato sauce, melted mozzarella cheese, fresh basil leaves, and a drizzle of pure olive oil.
                             </p>
                         </div>
                     </article>
 
                     <!-- Dish 4 -->
-                    <article class="dish-card">
-                        <div class="dish-thumb-box">
-                            <img src="images/lasagna.jpg" alt="Homestyle Baked Spinach Lasagna" class="dish-pic">
-                            <span class="badge-ribbon ribbon-hearth">Chef's Choice</span>
-                            <span class="badge-veg">🌱 Pure Veg</span>
+                    <article class="menu-card">
+                        <div class="card-img-wrap">
+                            <img src="images/lasagna.jpg" alt="Baked Spinach Lasagna" class="card-img">
+                            <span class="card-badge badge-tag">Chef's Choice</span>
+                            <span class="card-veg-badge">🌱 Veg</span>
                         </div>
-                        <div class="dish-details">
-                            <div class="dish-header">
-                                <h3 class="dish-title">Baked Spinach Lasagna</h3>
-                                <span class="dish-cost">₹289</span>
+                        <div class="card-content">
+                            <div class="card-heading">
+                                <h3 class="dish-name">Baked Spinach Lasagna</h3>
+                                <span class="dish-price">₹289</span>
                             </div>
                             <span class="dish-category">Wood-Fired Mains</span>
-                            <p class="dish-description">
-                                Layers of tender semolina pasta sheets, sautéed baby spinach, creamy ricotta béchamel, and melted parmesan cheese.
+                            <p class="dish-desc">
+                                Layers of tender pasta sheets baked in the oven with sautéed spinach, creamy white cheese sauce, tomato sauce, and golden mozzarella.
                             </p>
                         </div>
                     </article>
 
                     <!-- Dish 5 -->
-                    <article class="dish-card">
-                        <div class="dish-thumb-box">
-                            <img src="images/apple-pie.jpg" alt="Warm Cinnamon Apple Pie" class="dish-pic">
-                            <span class="badge-ribbon ribbon-special">House Classic</span>
-                            <span class="badge-veg">🌱 Pure Veg</span>
+                    <article class="menu-card">
+                        <div class="card-img-wrap">
+                            <img src="images/apple-pie.jpg" alt="Warm Cinnamon Apple Pie" class="card-img">
+                            <span class="card-badge badge-tag">House Classic</span>
+                            <span class="card-veg-badge">🌱 Veg</span>
                         </div>
-                        <div class="dish-details">
-                            <div class="dish-header">
-                                <h3 class="dish-title">Warm Cinnamon Apple Pie</h3>
-                                <span class="dish-cost">₹189</span>
+                        <div class="card-content">
+                            <div class="card-heading">
+                                <h3 class="dish-name">Warm Apple Pie</h3>
+                                <span class="dish-price">₹189</span>
                             </div>
-                            <span class="dish-category">Artisan Pastry & Desserts</span>
-                            <p class="dish-description">
-                                Flaky butter crust stuffed with spiced Granny Smith apples, nutmeg, and brown sugar caramel, served with vanilla crème.
+                            <span class="dish-category">Bakery & Desserts</span>
+                            <p class="dish-desc">
+                                Homemade flaky butter crust filled with spiced apples, cinnamon, and brown sugar caramel. Served warm with vanilla ice cream.
                             </p>
                         </div>
                     </article>
 
                     <!-- Dish 6 -->
-                    <article class="dish-card">
-                        <div class="dish-thumb-box">
-                            <img src="images/croissant.jpg" alt="Almond Butter Flaky Croissant" class="dish-pic">
-                            <span class="badge-veg">🌱 Pure Veg</span>
+                    <article class="menu-card">
+                        <div class="card-img-wrap">
+                            <img src="images/croissant.jpg" alt="Almond Butter Croissant" class="card-img">
+                            <span class="card-badge badge-tag">Bakery Special</span>
+                            <span class="card-veg-badge">🌱 Veg</span>
                         </div>
-                        <div class="dish-details">
-                            <div class="dish-header">
-                                <h3 class="dish-title">Almond Butter Croissant</h3>
-                                <span class="dish-cost">₹149</span>
+                        <div class="card-content">
+                            <div class="card-heading">
+                                <h3 class="dish-name">Almond Butter Croissant</h3>
+                                <span class="dish-price">₹149</span>
                             </div>
-                            <span class="dish-category">Artisan Pastry & Desserts</span>
-                            <p class="dish-description">
-                                Golden 27-layer laminated French pastry filled with sweet almond frangipane and crowned with toasted sliced almonds.
+                            <span class="dish-category">Bakery & Desserts</span>
+                            <p class="dish-desc">
+                                Flaky golden French pastry filled with sweet almond cream filling and topped with roasted sliced almonds and powdered sugar.
                             </p>
                         </div>
                     </article>
 
                     <!-- Dish 7 -->
-                    <article class="dish-card">
-                        <div class="dish-thumb-box">
-                            <img src="images/cappuccino.jpg" alt="Classic Italian Cappuccino" class="dish-pic">
-                            <span class="badge-ribbon ribbon-hearth">Artisan Roast</span>
-                            <span class="badge-veg">🌱 Pure Veg</span>
+                    <article class="menu-card">
+                        <div class="card-img-wrap">
+                            <img src="images/cappuccino.jpg" alt="Italian Roast Cappuccino" class="card-img">
+                            <span class="card-badge badge-tag">Fresh Brew</span>
+                            <span class="card-veg-badge">🌱 Veg</span>
                         </div>
-                        <div class="dish-details">
-                            <div class="dish-header">
-                                <h3 class="dish-title">Italian Roast Cappuccino</h3>
-                                <span class="dish-cost">₹169</span>
+                        <div class="card-content">
+                            <div class="card-heading">
+                                <h3 class="dish-name">Italian Cappuccino</h3>
+                                <span class="dish-price">₹169</span>
                             </div>
-                            <span class="dish-category">Hot Brews & Coffee</span>
-                            <p class="dish-description">
-                                Rich double espresso topped with equal parts steamed whole milk and velvety microfoam, dusted with organic cocoa powder.
+                            <span class="dish-category">Hot Beverages</span>
+                            <p class="dish-desc">
+                                Freshly brewed espresso coffee blended with steamed whole milk and topped with a thick layer of creamy milk foam and cocoa powder.
                             </p>
                         </div>
                     </article>
 
                     <!-- Dish 8 -->
-                    <article class="dish-card">
-                        <div class="dish-thumb-box">
-                            <img src="images/berry-tea.jpg" alt="Wild Berry Iced Tea" class="dish-pic">
-                            <span class="badge-veg">🌱 Pure Veg</span>
+                    <article class="menu-card">
+                        <div class="card-img-wrap">
+                            <img src="images/berry-tea.jpg" alt="Wild Berry Iced Tea" class="card-img">
+                            <span class="card-badge badge-tag">Refreshing</span>
+                            <span class="card-veg-badge">🌱 Veg</span>
                         </div>
-                        <div class="dish-details">
-                            <div class="dish-header">
-                                <h3 class="dish-title">Wild Berry Iced Tea</h3>
-                                <span class="dish-cost">₹139</span>
+                        <div class="card-content">
+                            <div class="card-heading">
+                                <h3 class="dish-name">Wild Berry Iced Tea</h3>
+                                <span class="dish-price">₹139</span>
                             </div>
-                            <span class="dish-category">Cold Infusions</span>
-                            <p class="dish-description">
-                                Slow-brewed black tea infused with forest blueberries, raspberries, a touch of lemon zest, and sweetened with raw wildflower honey.
+                            <span class="dish-category">Cold Drinks</span>
+                            <p class="dish-desc">
+                                Chilled black tea infused with natural blueberry and raspberry extracts, fresh mint, lemon juice, and a light touch of pure honey.
                             </p>
                         </div>
                     </article>
-
                 </div>
             </div>
         </section>
 
-        <!-- 4. Chef Specials & Offers Section -->
-        <section id="specials" class="specials-wrapper">
+        <!-- 5. Specials & Offers Section (Lecture 5 & 6: Flexbox Layout) -->
+        <section id="specials" class="specials-section">
             <div class="container">
-                <div class="hearth-promo-box">
-                    <div class="promo-text-side">
-                        <span class="promo-badge">Weekly Kitchen Offer</span>
-                        <h2 class="promo-title">The Baker's Feast Bundle</h2>
-                        <p class="promo-description">
-                            Order any two wood-fired artisan pizzas and receive a complimentary basket of fresh sourdough garlic bread and our signature almond croissant!
+                <div class="offer-banner">
+                    <div class="offer-text">
+                        <span class="offer-tag">Weekly Special Offer</span>
+                        <h2 class="offer-title">The Baker's Feast Combo</h2>
+                        <p class="offer-desc">
+                            Order any two wood-fired pizzas of your choice and get a free basket of fresh garlic sourdough bread plus one complimentary almond croissant!
                         </p>
-                        <div class="coupon-display">
+                        <div class="promo-coupon">
                             <span>Use Promo Code:</span>
                             <strong>RUSTICBAKE</strong>
                         </div>
                         <a href="#book" class="btn btn-primary">Claim This Offer</a>
                     </div>
-                    <div class="promo-image-side">
-                        <img src="images/special-basket.jpg" alt="Artisan Bread and Pizza Feast" class="promo-img">
+                    <div class="offer-image-box">
+                        <img src="images/special-basket.jpg" alt="Baker's Feast Combo" class="offer-img">
                     </div>
                 </div>
 
                 <!-- Secondary Perks -->
-                <div class="perks-row">
-                    <div class="perk-card">
-                        <span class="perk-icon">🥐</span>
-                        <div class="perk-details">
-                            <h4>Early Morning Baker's Perk</h4>
-                            <p>Arrive before 9:30 AM on weekdays and get a free brewed filter coffee with any bakery pastry.</p>
-                            <span class="perk-note">Tue – Fri | 8:30 AM – 9:30 AM</span>
+                <div class="perks-grid">
+                    <div class="perk-box">
+                        <span class="perk-emoji">🥐</span>
+                        <div class="perk-text">
+                            <h4>Early Morning Breakfast Perk</h4>
+                            <p>Walk in before 9:30 AM on weekdays and get a free hot filter coffee with any bakery pastry item.</p>
+                            <span class="perk-timing">Tue – Fri | 8:30 AM – 9:30 AM</span>
                         </div>
                     </div>
-                    <div class="perk-card">
-                        <span class="perk-icon">🎓</span>
-                        <div class="perk-details">
-                            <h4>Campus Student Privilege</h4>
-                            <p>Show your college ID card for a flat 10% discount on all dining and bakery takeaway orders.</p>
-                            <span class="perk-note">Valid All Operating Days</span>
+                    <div class="perk-box">
+                        <span class="perk-emoji">🎓</span>
+                        <div class="perk-text">
+                            <h4>College Student Discount</h4>
+                            <p>Show your college or university student ID card and get a flat 10% discount on your entire dining bill.</p>
+                            <span class="perk-timing">Valid All Operating Days</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 5. Patron Reviews / Testimonials -->
-        <section class="reviews-section">
+        <!-- 6. Customer Testimonials -->
+        <section class="testimonials-section">
             <div class="container">
-                <div class="section-heading-group center-text">
-                    <span class="section-label">Community Love</span>
+                <div class="section-header text-center">
+                    <span class="section-badge">Guest Reviews</span>
                     <h2 class="section-title">What Our Guests Say</h2>
                     <p class="section-subtitle">
-                        From breakfast lovers to Italian cuisine fans, here are honest words from our frequent guests.
+                        Here is what regular visitors and food lovers say about their dining experience with us.
                     </p>
                 </div>
 
                 <div class="reviews-grid">
-                    <div class="review-box">
+                    <div class="review-card">
                         <div class="stars">★★★★★</div>
-                        <p class="review-quote">
-                            "The crust on the wood-fired Margherita pizza is unlike anything else in Pune. Fluffy, blistered, and crispy. Plus, the garlic sourdough bread is legendary."
+                        <p class="review-text">
+                            "The crust on the wood-fired Margherita pizza is amazing. Crisp and light. Their garlic sourdough bread is also by far the best in town."
                         </p>
-                        <div class="reviewer">
-                            <div class="avatar">SJ</div>
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">SJ</div>
                             <div>
                                 <h5>Siddharth Joshi</h5>
                                 <span>Software Engineer & Foodie</span>
@@ -365,13 +368,13 @@
                         </div>
                     </div>
 
-                    <div class="review-box">
+                    <div class="review-card">
                         <div class="stars">★★★★★</div>
-                        <p class="review-quote">
-                            "The cinnamon apple pie tastes like a warm hug on a rainy evening. Their cappuccino has deep, nutty notes. Truly a gem for relaxed weekend conversations."
+                        <p class="review-text">
+                            "The warm cinnamon apple pie tastes like homemade comfort food. Perfect place to relax on a weekend with a cup of hot cappuccino."
                         </p>
-                        <div class="reviewer">
-                            <div class="avatar">MN</div>
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">MN</div>
                             <div>
                                 <h5>Meera Nair</h5>
                                 <span>Design Student</span>
@@ -379,16 +382,16 @@
                         </div>
                     </div>
 
-                    <div class="review-box">
+                    <div class="review-card">
                         <div class="stars">★★★★★</div>
-                        <p class="review-quote">
-                            "Authentic homestyle baking. You can actually taste the 36-hour slow fermentation in every single slice of sourdough. We come here every Sunday!"
+                        <p class="review-text">
+                            "Great homestyle bakery and pasta! You can really tell the sourdough bread is slow-fermented and prepared fresh. Highly recommended."
                         </p>
-                        <div class="reviewer">
-                            <div class="avatar">KP</div>
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">KP</div>
                             <div>
                                 <h5>Kunal Patel</h5>
-                                <span>Neighborhood Resident</span>
+                                <span>Local Resident</span>
                             </div>
                         </div>
                     </div>
@@ -396,56 +399,57 @@
             </div>
         </section>
 
-        <!-- 6. Operating Hours Table (Lecture 4 HTML Table) -->
+        <!-- 7. Operating Hours Table (Lecture 4: HTML Table, thead, tbody, tr, th, td, colspan) -->
         <section id="timings" class="timings-section">
             <div class="container">
-                <div class="section-heading-group center-text">
-                    <span class="section-label">Plan Your Dining</span>
-                    <h2 class="section-title">Operating Hours & Schedule</h2>
+                <div class="section-header text-center">
+                    <span class="section-badge">Visit Us</span>
+                    <h2 class="section-title">Weekly Operating Hours</h2>
                     <p class="section-subtitle">
-                        Please check our weekly schedule below before planning your visit.
+                        Please check our schedule below before visiting. We recommend booking tables on weekends.
                     </p>
                 </div>
 
-                <div class="table-container">
-                    <table class="schedule-table">
+                <div class="table-wrap">
+                    <table class="hours-table">
                         <thead>
                             <tr>
                                 <th>Day</th>
                                 <th>Bakery & Coffee</th>
-                                <th>Wood-Fired Trattoria</th>
+                                <th>Wood-Fired Kitchen</th>
                                 <th>Special Notes</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><strong>Monday</strong></td>
-                                <td colspan="2" class="closed-cell">Closed for Flour Milling & Yeast Prep</td>
-                                <td><span class="badge-status status-closed">Bakers' Rest Day</span></td>
+                                <!-- Lecture 4: colspan demonstration -->
+                                <td colspan="2" class="closed-notice">Closed for Weekly Kitchen Cleaning & Yeast Prep</td>
+                                <td><span class="tag-status status-closed">Kitchen Closed</span></td>
                             </tr>
                             <tr>
                                 <td><strong>Tuesday – Thursday</strong></td>
                                 <td>8:30 AM – 9:30 PM</td>
                                 <td>12:00 PM – 10:00 PM</td>
-                                <td><span class="badge-status status-normal">Normal Dining</span></td>
+                                <td><span class="tag-status status-open">Regular Dining</span></td>
                             </tr>
                             <tr>
                                 <td><strong>Friday</strong></td>
                                 <td>8:30 AM – 10:00 PM</td>
-                                <td>12:00 PM – 11:00 PM</td>
-                                <td><span class="badge-status status-normal">Late Night Dining</span></td>
+                                <td>12:00 PM – 10:30 PM</td>
+                                <td><span class="tag-status status-open">Late Night Dining</span></td>
                             </tr>
                             <tr>
                                 <td><strong>Saturday</strong></td>
                                 <td>8:00 AM – 10:30 PM</td>
                                 <td>11:30 AM – 11:00 PM</td>
-                                <td><span class="badge-status status-weekend">Live Hearth Acoustic</span></td>
+                                <td><span class="tag-status status-weekend">Live Acoustic Evening</span></td>
                             </tr>
                             <tr>
                                 <td><strong>Sunday</strong></td>
                                 <td>8:00 AM – 10:00 PM</td>
-                                <td>11:30 AM – 10:30 PM</td>
-                                <td><span class="badge-status status-weekend">All-Day Baker's Feast</span></td>
+                                <td>11:30 AM – 10:00 PM</td>
+                                <td><span class="tag-status status-weekend">Sunday Feast Special</span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -453,141 +457,135 @@
             </div>
         </section>
 
-        <!-- 7. Table Reservation & Contact Section (Lecture 3 HTML Forms) -->
+        <!-- 8. Table Booking Section (Lecture 3: HTML Forms, Input Types, Select, Textarea, Button) -->
         <section id="book" class="booking-section">
             <div class="container">
-                <div class="booking-split-layout">
-                    
-                    <!-- Left: Kitchen Info & Location -->
-                    <div class="kitchen-info-box">
-                        <span class="section-label">Visit Our Hearth</span>
-                        <h2 class="section-title">Come Dine with Us.</h2>
-                        <p class="kitchen-lead">
-                            We take table bookings for family lunches, celebratory dinners, and quiet bakery coffee afternoons. Walk-ins are always welcomed subject to table availability.
+                <div class="booking-layout">
+                    <!-- Contact and Location Info -->
+                    <div class="booking-info">
+                        <span class="section-badge">Reservation</span>
+                        <h2 class="section-title">Book a Table with Us</h2>
+                        <p class="booking-lead">
+                            Planning a family meal, a weekend brunch with friends, or a quiet coffee? Reserve your table in advance and we will keep it ready for you.
                         </p>
 
-                        <div class="address-cards">
-                            <div class="address-card">
-                                <span class="card-icon">📍</span>
+                        <div class="contact-cards">
+                            <div class="contact-card">
+                                <span class="contact-icon">📍</span>
                                 <div>
-                                    <h4>Bakery & Trattoria Address</h4>
-                                    <p>Shop 14-16, East Avenue, Kalyani Nagar, Pune, Maharashtra 411006</p>
+                                    <h4>Our Location</h4>
+                                    <p>Plot No. 18, Lane 5, Kalyani Nagar, Pune - 411006</p>
                                 </div>
                             </div>
-
-                            <div class="address-card">
-                                <span class="card-icon">📞</span>
+                            <div class="contact-card">
+                                <span class="contact-icon">📞</span>
                                 <div>
-                                    <h4>Phone Inquiries</h4>
-                                    <p><a href="tel:+919822012345">+91 98220 12345</a></p>
+                                    <h4>Phone Reservations</h4>
+                                    <p>+91 98230 45678 / +91 20 6712 8900</p>
                                 </div>
                             </div>
-
-                            <div class="address-card">
-                                <span class="card-icon">✉️</span>
+                            <div class="contact-card">
+                                <span class="contact-icon">✉️</span>
                                 <div>
-                                    <h4>Direct Email</h4>
-                                    <p><a href="mailto:hearth@rustickitchen.in">hearth@rustickitchen.in</a></p>
+                                    <h4>Email Inquiries</h4>
+                                    <p>hello@rustickitchen.in</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="hearth-features-box">
-                            <h4>Guest Conveniences</h4>
-                            <ul class="features-checklist">
-                                <li>✓ Traditional Beechwood Pizza Oven</li>
-                                <li>✓ Outdoor Cobblestone Veranda Seating</li>
-                                <li>✓ 100% Vegetarian Artisan Prep Kitchen</li>
-                                <li>✓ Dedicated Takeaway Bakery Counter</li>
+                        <div class="amenities-box">
+                            <h4>Dining Features:</h4>
+                            <ul class="amenities-list">
+                                <li>✓ Outdoor garden seating and indoor cozy booths</li>
+                                <li>✓ High-speed guest Wi-Fi for study & work</li>
+                                <li>✓ Free customer car and two-wheeler parking</li>
+                                <li>✓ Fresh bakery takeaway counter available</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Right: Reservation Form -->
-                    <div class="reservation-form-container">
-                        <div class="form-title-group">
-                            <h3>Reserve Your Hearth Table</h3>
-                            <p>Fill out the reservation form below. We will send an instant confirmation via SMS and Email.</p>
+                    <!-- Pure HTML5 Form without JS (Lecture 3) -->
+                    <div class="booking-form-wrap">
+                        <div class="form-header">
+                            <h3>Reserve Your Table</h3>
+                            <p>Fill out the form below. We will confirm your slot via SMS or Email.</p>
                         </div>
 
-                        <form class="hearth-form" action="#" method="post" onsubmit="event.preventDefault(); alert('Thank you! Your table at Rustic Kitchen has been booked.');">
-                            <div class="input-grid">
-                                <div class="field-item">
-                                    <label for="clientName">Your Name <span class="req">*</span></label>
-                                    <input type="text" id="clientName" name="clientName" placeholder="e.g. Rahul Sharma" required>
+                        <form class="booking-form" action="#" method="post">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name <span class="req">*</span></label>
+                                    <input type="text" id="fullName" name="fullName" placeholder="e.g. Rahul Sharma" required>
                                 </div>
-                                <div class="field-item">
-                                    <label for="clientPhone">Contact Number <span class="req">*</span></label>
-                                    <input type="tel" id="clientPhone" name="clientPhone" placeholder="e.g. 9822012345" required>
+                                <div class="form-group">
+                                    <label for="phoneNumber">Phone Number <span class="req">*</span></label>
+                                    <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="e.g. 9876543210" pattern="[0-9]{10}" required>
                                 </div>
                             </div>
 
-                            <div class="input-grid">
-                                <div class="field-item">
-                                    <label for="clientEmail">Email Address <span class="req">*</span></label>
-                                    <input type="email" id="clientEmail" name="clientEmail" placeholder="e.g. rahul@example.com" required>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="emailAddr">Email Address <span class="req">*</span></label>
+                                    <input type="email" id="emailAddr" name="emailAddr" placeholder="e.g. rahul@example.com" required>
                                 </div>
-                                <div class="field-item">
+                                <div class="form-group">
                                     <label for="partySize">Number of Guests <span class="req">*</span></label>
                                     <select id="partySize" name="partySize" required>
-                                        <option value="" disabled selected>Select Party Size</option>
+                                        <option value="" disabled selected>Select number of people</option>
                                         <option value="1">1 Person (Solo Dining)</option>
                                         <option value="2">2 Persons (Couple Table)</option>
-                                        <option value="3-4">3 to 4 Persons (Family Booth)</option>
-                                        <option value="5+">5+ Persons (Large Feast Table)</option>
+                                        <option value="3-4">3 to 4 Persons (Family Table)</option>
+                                        <option value="5+">5+ Persons (Large Group)</option>
                                     </select>
                                 </div>
                             </div>
 
-                            <div class="input-grid">
-                                <div class="field-item">
-                                    <label for="visitDate">Date of Visit <span class="req">*</span></label>
-                                    <input type="date" id="visitDate" name="visitDate" required>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="bookDate">Date of Visit <span class="req">*</span></label>
+                                    <input type="date" id="bookDate" name="bookDate" required>
                                 </div>
-                                <div class="field-item">
-                                    <label for="visitSlot">Dining Slot <span class="req">*</span></label>
-                                    <select id="visitSlot" name="visitSlot" required>
-                                        <option value="" disabled selected>Select Slot</option>
-                                        <option value="morning">Morning Breakfast (8:30 AM – 11:30 AM)</option>
-                                        <option value="lunch">Artisan Lunch (12:00 PM – 3:30 PM)</option>
-                                        <option value="evening">Afternoon Tea & Bakes (4:00 PM – 7:00 PM)</option>
-                                        <option value="dinner">Wood-Fired Dinner (7:30 PM – 11:00 PM)</option>
+                                <div class="form-group">
+                                    <label for="bookSlot">Time Slot <span class="req">*</span></label>
+                                    <select id="bookSlot" name="bookSlot" required>
+                                        <option value="" disabled selected>Select time slot</option>
+                                        <option value="breakfast">Morning Breakfast (8:30 AM – 11:30 AM)</option>
+                                        <option value="lunch">Lunch (12:00 PM – 3:30 PM)</option>
+                                        <option value="tea">Evening Coffee & Bakes (4:00 PM – 7:00 PM)</option>
+                                        <option value="dinner">Wood-Fired Dinner (7:30 PM – 10:30 PM)</option>
                                     </select>
                                 </div>
                             </div>
 
-                            <div class="field-item">
-                                <label for="guestNotes">Special Dietary / Seating Requests</label>
-                                <textarea id="guestNotes" name="guestNotes" rows="3" placeholder="e.g. Outdoor veranda seating preferred, anniversary celebration, extra bread basket..."></textarea>
+                            <div class="form-group">
+                                <label for="specialNotes">Special Requests (Optional)</label>
+                                <textarea id="specialNotes" name="specialNotes" rows="3" placeholder="e.g. Birthday celebration, outdoor garden seating preference..."></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-primary btn-fullwidth">Confirm Table Booking</button>
+                            <button type="submit" class="btn btn-primary btn-block">Confirm Table Reservation</button>
                         </form>
                     </div>
-
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer Section -->
-    <footer class="footer-section">
-        <div class="footer-wrap">
-            <div class="footer-main-col">
-                <div class="footer-brand">
-                    <h2>🌾 Rustic Kitchen</h2>
-                    <span>Homestyle Bakery & Trattoria</span>
-                </div>
-                <p class="footer-desc">
-                    Celebrating slow fermentation, stone-ground flours, and wood-fired homestyle recipes. Baked fresh every morning with care in Pune.
+    <!-- 9. Footer Section (Lecture 4: Semantic Footer) -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col footer-about">
+                <h3>🌾 Rustic Kitchen</h3>
+                <span class="footer-tagline">Homestyle Bakery & Trattoria</span>
+                <p>
+                    Celebrating traditional slow baking, wood-fired recipes, and fresh seasonal ingredients. Prepared fresh every morning with passion in Pune.
                 </p>
             </div>
 
-            <div class="footer-nav-col">
-                <h4>Navigation</h4>
-                <ul class="footer-menu">
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#about">Our Heritage</a></li>
+                    <li><a href="#about">About Us</a></li>
                     <li><a href="#menu">Bakery Menu</a></li>
                     <li><a href="#specials">Weekly Offers</a></li>
                     <li><a href="#timings">Operating Hours</a></li>
@@ -595,24 +593,22 @@
                 </ul>
             </div>
 
-            <div class="footer-schedule-col">
-                <h4>Kitchen Timings</h4>
+            <div class="footer-col">
+                <h4>Operating Hours</h4>
                 <p><strong>Tue – Fri:</strong> 8:30 AM – 10:00 PM</p>
                 <p><strong>Sat – Sun:</strong> 8:00 AM – 11:00 PM</p>
                 <p><strong>Monday:</strong> Closed for Prep</p>
-                <div class="social-pill">
-                    <span>Instagram: @rustickitchenpune</span>
-                </div>
+                <p class="social-text">Instagram: @rustickitchenpune</p>
             </div>
         </div>
 
-        <div class="footer-bar">
-            <div class="footer-bar-container">
+        <div class="footer-bottom">
+            <div class="container footer-bottom-flex">
                 <p>&copy; 2026 Rustic Kitchen. All rights reserved.</p>
-                <p class="developer-tag">
-                    Web Development Continuous Assessment (CA) Project · Built with Semantic HTML5 & CSS3
+                <p class="course-credit">
+                    Web Development Continuous Assessment (CA) Project 1 · Built with Semantic HTML5 & CSS3
                 </p>
-                <a href="#home" class="scroll-top">Top ↑</a>
+                <a href="#home" class="back-to-top">Back to Top ↑</a>
             </div>
         </div>
     </footer>
